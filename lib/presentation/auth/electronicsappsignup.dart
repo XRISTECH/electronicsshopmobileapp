@@ -1,3 +1,4 @@
+import 'package:electronicsshop_app/presentation/auth/electronicsshoplogin.dart';
 import 'package:flutter/material.dart';
 
 class ElectronicsAppSignup extends StatefulWidget {
@@ -101,7 +102,9 @@ class _ElectronicsAppSignupState extends State<ElectronicsAppSignup> {
 
                     const SizedBox(height: 40.0),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ElectronicsShopLogin()));
+                      },
                       child: Container(
                         height: 50.0,
                         decoration: BoxDecoration( gradient: const LinearGradient(colors: [
@@ -112,7 +115,7 @@ class _ElectronicsAppSignupState extends State<ElectronicsAppSignup> {
                         width: MediaQuery.of(context).size.width,
                         child: const Center(
                           child: Text(
-                            "LOGIN",
+                            "REGISTER",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 24.0,
@@ -139,7 +142,9 @@ class _ElectronicsAppSignupState extends State<ElectronicsAppSignup> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ElectronicsShopLogin()));
+                             },
                               child: const Text(
                                 "LOGIN",
                                 style: TextStyle(

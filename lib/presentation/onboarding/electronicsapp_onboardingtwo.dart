@@ -1,3 +1,4 @@
+import 'package:electronicsshop_app/presentation/auth/electronicsappsignup.dart';
 import 'package:flutter/material.dart';
 
 class ElectronicsappOnboardingtwo extends StatefulWidget {
@@ -60,7 +61,9 @@ class _ElectronicsappOnboardingtwoState extends State<ElectronicsappOnboardingtw
                 Padding(
                   padding: const EdgeInsets.only(bottom: 30.0), // Moves button up
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ElectronicsAppSignup()));
+                    },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                       textStyle: const TextStyle(fontSize: 18),

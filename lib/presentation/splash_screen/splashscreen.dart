@@ -1,3 +1,4 @@
+import 'package:electronicsshop_app/presentation/onboarding/electronicsapp_onboardingone.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -8,6 +9,15 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 20), () {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ElectronicsappOnboardingone()));
+    },);
+        super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
