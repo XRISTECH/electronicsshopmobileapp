@@ -1,7 +1,8 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
 class ElectronicsShopLogin extends StatefulWidget {
-  const ElectronicsShopLogin({super.key});
+  final Function toggleView;
+  const ElectronicsShopLogin({super.key, required this.toggleView});
 
   @override
   State<ElectronicsShopLogin> createState() => _ElectronicsShopLoginState();
@@ -134,7 +135,9 @@ class _ElectronicsShopLoginState extends State<ElectronicsShopLogin> {
                             ),
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              widget.toggleView();
+                            },
                             child: const Text(
                               "REGISTER",
                               style: TextStyle(

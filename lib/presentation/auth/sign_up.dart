@@ -1,7 +1,8 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
 class ElectronicsAppSignup extends StatefulWidget {
-  const ElectronicsAppSignup({super.key});
+  final Function toggleView;
+  const ElectronicsAppSignup({super.key, required this.toggleView});
 
   @override
   State<ElectronicsAppSignup> createState() => _ElectronicsAppSignupState();
@@ -102,7 +103,7 @@ class _ElectronicsAppSignupState extends State<ElectronicsAppSignup> {
                     const SizedBox(height: 40.0),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ElectronicsShopLogin()));
+                        widget.toggleView();
                       },
                       child: Container(
                         height: 50.0,
@@ -142,7 +143,7 @@ class _ElectronicsAppSignupState extends State<ElectronicsAppSignup> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => const ElectronicsShopLogin()));
+                                widget.toggleView();
                               },
                               child: const Text(
                                 "LOGIN",
