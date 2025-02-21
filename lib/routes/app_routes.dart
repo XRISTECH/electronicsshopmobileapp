@@ -1,5 +1,4 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
-import 'package:electronicsshop_app/presentation/auth/authenticate.dart';
 
 class AppRoutes {
   static const String splashScreen = '/splash_screen';

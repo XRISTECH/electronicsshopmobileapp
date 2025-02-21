@@ -1,7 +1,4 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
-import 'package:electronicsshop_app/cores/utils/navigator_service.dart';
-import 'package:electronicsshop_app/presentation/onboarding/electronicsapp_onboardingtwo.dart';
-import 'package:flutter/material.dart';
 
 class ElectronicsappOnboardingone extends StatefulWidget {
   const ElectronicsappOnboardingone({super.key});
