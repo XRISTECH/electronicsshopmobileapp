@@ -1,5 +1,5 @@
-import 'package:electronicsshop_app/presentation/onboarding/electronicsapp_onboardingone.dart';
-import 'package:flutter/material.dart';
+import 'package:electronicsshop_app/cores/app_exports.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 20), () {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ElectronicsappOnboardingone()));
+    NavigatorService.popAndPushNamed(AppRoutes.onboardingScreen1);
     },);
         super.initState();
   }

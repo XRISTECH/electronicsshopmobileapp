@@ -1,3 +1,5 @@
+import 'package:electronicsshop_app/cores/app_exports.dart';
+import 'package:electronicsshop_app/cores/utils/navigator_service.dart';
 import 'package:electronicsshop_app/presentation/onboarding/electronicsapp_onboardingtwo.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +71,7 @@ class _ElectronicsappOnboardingoneState
                       const EdgeInsets.only(bottom: 30.0), // Moves button up
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ElectronicsappOnboardingtwo()));
+                     NavigatorService.popAndPushNamed(AppRoutes.onboardingScreen2);
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
