@@ -693,15 +693,15 @@ class Category {
 final List<Category> categoriesList = [
   Category(
     name: "SmartPhones",
-    image: "images/31217926-7524-4c61-841b-5c7d12ef0416.png",
+    image: "assets/images/31217926-7524-4c61-841b-5c7d12ef0416.png",
   ),
   Category(
     name: "Fridge",
-    image: "images/Samsung Family Hub™️ _ Samsung US _ undefined undefined.png",
+    image: "assets/images/Samsung Family Hub™️ _ Samsung US _ undefined undefined.png",
   ),
   Category(
     name: "AC",
-    image: "images/Air Conditioner (2).png",
+    image: "assets/images/Air-Conditioner.png",
   ),
   Category(
     name: "SmartWatch",
