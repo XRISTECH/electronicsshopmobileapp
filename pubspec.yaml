@@ -63,6 +63,12 @@ flutter:
       - assets/images/
       - assets/images/headphones/
       - assets/images/smartwatch/
+      - assets/images/ac/
+      - assets/images/fridge/
+      - assets/images/laptops/
+      - assets/images/smartphones/
+      - assets/images/televisions
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
