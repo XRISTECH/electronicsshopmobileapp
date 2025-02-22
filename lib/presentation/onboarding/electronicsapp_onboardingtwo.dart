@@ -61,7 +61,7 @@ class _ElectronicsappOnboardingtwoState extends State<ElectronicsappOnboardingtw
                   padding: const EdgeInsets.only(bottom: 30.0), // Moves button up
                   child: ElevatedButton(
                     onPressed: () {
-                      NavigatorService.popAndPushNamed(AppRoutes.signup);
+                      NavigatorService.popAndPushNamed(AppRoutes.auth);
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),

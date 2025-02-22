@@ -1,7 +1,4 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
-import 'package:electronicsshop_app/cores/utils/navigator_service.dart';
-
-
 
 class ElectronicsappOnboardingone extends StatefulWidget {
   const ElectronicsappOnboardingone({super.key});
