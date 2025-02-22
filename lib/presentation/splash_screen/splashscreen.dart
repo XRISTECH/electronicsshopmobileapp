@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
           /// Background Image
           Positioned.fill(
             child: Image.asset(
-              "images/electronics-computer-thumbnail-removebg-preview.png", // Your background image
+              "assets/images/electronics-computer-thumbnail-removebg-preview.png", // Your background image
               fit: BoxFit.cover, // Cover the entire screen
             ),
           ),
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  "images/welectricalslogo.png",
+                  "assets/images/welectricalslogo.png",
                   height: 450,
                 ),
                 const SizedBox(height: 5),
