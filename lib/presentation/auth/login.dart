@@ -9,156 +9,129 @@ class ElectronicsShopLogin extends StatefulWidget {
 }
 
 class _ElectronicsShopLoginState extends State<ElectronicsShopLogin> {
+  final _formKey = GlobalKey<FormState>();
+  bool _showPassword = true;
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(top: 50.0),
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color(0xFF1D3767),
-            Color(0xFF1D3767),
-            Color(0xFF1D3767),
-          ], begin:Alignment.topLeft, end: Alignment.topRight)),
-        child:  Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 30.0),
-              child: Text('Hello\nLogin!!',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 38.0,
-                    fontWeight: FontWeight.bold,
+        backgroundColor: Colors.black,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 100.0, bottom: 50),
+                  child: Center(child: Image.asset(ImageConstants.camImg, width: 100, height: 100)),
                 ),
-              ),
-            ),
-            const SizedBox(height: 40.0),
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.only(top: 50.0, left: 20.0, right: 30.0),
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                )),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Email',
-                    style: TextStyle(
-                      color: Color(0xFF1D3767),
-                      fontSize: 23.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 10.0),
-                  const TextField(
-                    decoration: InputDecoration(
-                      hintText: "Enter Email",
-                      prefixIcon: Icon(Icons.email_outlined,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 40.0),
-                  const Text(
-                    'Password',
-                    style: TextStyle(
-                      color: Color(0xFF1D3767),
-                      fontSize: 23.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(
-                      hintText: "Enter Password",
-                      prefixIcon: Icon(Icons.password,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 10.0),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                const Text("Electro-Store", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
+                const SizedBox(height: 20,),
+                const Text("Join the big store", style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),),
+                const SizedBox(height: 30,),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Forgot Password?",
-                        style: TextStyle(
-                          color: Color(0xFF1D3767),
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      const Text('Email *', style: TextStyle(color: Colors.white),),
+                      const SizedBox(
+                        height: 5,
                       ),
-                    ],
-                  ),
-                   const SizedBox(height: 70.0),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      height: 50.0,
-                      decoration: BoxDecoration( gradient: const LinearGradient(colors: [
-                        Color(0xFF1D3767),
-                        Color(0xFF1D3767),
-                        Color(0xFF1D3767),
-                      ], begin:Alignment.topLeft, end: Alignment.topRight), borderRadius: BorderRadius.circular(30)),
-                      width: MediaQuery.of(context).size.width,
-                      child: const Center(
-                        child: Text(
-                          "LOGIN",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      TextFormField(
+                        controller: _email,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: textInputDecoration.copyWith(
+                            suffixIcon: const Icon(Icons.email),
+                            hintText: 'example@email.com',
+                            enabledBorder: inputBorder,
+
                         ),
+                        validator: (value) {
+                          return isValidEmail(value, isRequired: true)
+                              ? null
+                              : 'Enter a valid email address';
+                        },
                       ),
-                    ),
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height/5,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          const Text(
-                            "Don't have an account?",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      const Text('Password *', style: TextStyle(color: Colors.white),),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      TextFormField(
+                        controller: _password,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: textInputDecoration.copyWith(
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _showPassword = !_showPassword; // Toggle the password visibility
+                              });
+                              print(_showPassword);
+                            },
+                            child: Icon(
+                              _showPassword ? Icons.visibility_off : Icons.visibility
                             ),
                           ),
+                          hintText: '******',
+                          enabledBorder: inputBorder,
+
+                        ),
+                        validator: (value) {
+                          return isValidPassword(value, isRequired: true);
+                        },
+                        obscureText: _showPassword ? true : false,
+                      ),
+                      const SizedBox(height: 20,),
+                      Center(
+                        child: SizedBox(
+                          width: 300,
+                          height: 50,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(backgroundColor: Colors.pink),
+                              onPressed: (){
+                              _login();
+                          }, child: const Text("Login", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
+                        ),
+                      ),
+                      const SizedBox(height: 30,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text("New Here?", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                          const SizedBox(width: 20,),
                           GestureDetector(
-                            onTap: () {
+                            onTap: (){
                               widget.toggleView();
                             },
-                            child: const Text(
-                              "REGISTER",
-                              style: TextStyle(
-                                color:   Color(0xFF1D3767),
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          )
-
+                              child: Text("Sign Up", style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold),))
                         ],
                       )
                     ],
-                  )
-                ],
-               ),
-              ),
+                  ),
+
+                )
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        )
     );
+
+  }
+  void _login() {
+    // Handle login button press
+    if (_formKey.currentState!.validate()) {
+
+    }
   }
 }
+
+
+var inputBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(8),
+  borderSide: BorderSide(color: Colors.grey[400]!),
+);

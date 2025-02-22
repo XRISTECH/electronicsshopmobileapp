@@ -22,7 +22,7 @@ class _Onboarding2State extends State<Onboarding2> {
               const SizedBox(height: 30,),
               const BuildSections(image: "assets/images/phone.png", title: "Smartphone X", text: "Experience the latest technology in your hand with cutting-edge features and design"),
               const SizedBox(height: 30,),
-              const BuildSections(image: "assets/images/headphones/h2.png", title: "Wireless Headphones", text: "Immerse yourself in music with noise-cancellation and superior sound quality"),
+              BuildSections(image: ImageConstants.headphoneImg, title: "Wireless Headphones", text: "Immerse yourself in music with noise-cancellation and superior sound quality"),
               const SizedBox(height: 30,),
               const BuildSections(image: "assets/images/smartwatch/watchsix-removebg-preview.png", title: "Smartwatch Pro", text: "Stay connected and track your health with this efficient and stylish smartwatch"),
               const SizedBox(height: 30,),
