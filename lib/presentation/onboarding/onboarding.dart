@@ -11,6 +11,7 @@ class Onboarding extends StatefulWidget {
 }
 
 class _OnboardingState extends State<Onboarding> {
+  // ignore: unused_field
   late int _selectedIndex = 0;
   final PageController _pageController = PageController();
 
