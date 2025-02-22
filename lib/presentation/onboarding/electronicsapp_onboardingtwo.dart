@@ -1,4 +1,3 @@
-
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
 class ElectronicsappOnboardingtwo extends StatefulWidget {
