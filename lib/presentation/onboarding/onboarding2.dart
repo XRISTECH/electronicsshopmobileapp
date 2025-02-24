@@ -1,5 +1,4 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
-import 'package:electronicsshop_app/cores/utils/image_constants.dart';
 
 class Onboarding2 extends StatefulWidget {
   final Function switchScreen;

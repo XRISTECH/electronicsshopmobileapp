@@ -829,21 +829,18 @@ final List<Category> categoriesList = [
   ),
   Category(
     name: "SmartWatch",
-    image:
-        "images/Apple Watch Repair Service in Dubai Abu Dhabi Sharjah UAE.png",
+    image: "assets/images/Apple Watch Repair Service in Dubai Abu Dhabi Sharjah UAE.png",
   ),
   Category(
     name: "HeadPhone",
-    image:
-        "images/Sennheiser Headphone PNG Images (Transparent HD Photo Clipart).png",
+    image: "assets/images/Sennheiser Headphone PNG Images (Transparent HD Photo Clipart).png",
   ),
   Category(
     name: "Laptop",
-    image:
-        "images/Download Dell Laptop Png Images Background png - Free PNG Images.png",
+    image: "assets/images/Download Dell Laptop Png Images Background png - Free PNG Images.png",
   ),
   Category(
     name: "Television",
-    image: "images/tv-removebg-preview.png",
+    image: "assets/images/tv-removebg-preview.png",
   ),
 ];

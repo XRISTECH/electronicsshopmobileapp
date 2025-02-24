@@ -125,7 +125,7 @@ class _ElectronicsShopLoginState extends State<ElectronicsShopLogin> {
   void _login() {
     // Handle login button press
     if (_formKey.currentState!.validate()) {
-
+      NavigatorService.popAndPushNamed(AppRoutes.homeScreen);
     }
   }
 }
