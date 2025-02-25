@@ -17,13 +17,13 @@ class ImageConstants {
   // common images
   static String camImg = '$imagePath/camm.png';
   static String tvImg = '$imagePath/tv-removebg-preview.png';
-  static String tvIcon = '$imagePath/noun-television-7580554.png';
-  static String smartphoneIcon = '$imagePath/mobile-phone.png';
-  static String fridgeIcon = '$imagePath/fridge.png';
-  static String laptopIcon = '$imagePath/noun-laptop-7581617.png';
-  static String smartwatchIcon = '$imagePath/noun-smart-watch-7581451.png';
-  static String headphoneIcon = '$imagePath/noun-headphone-5871837.png';
-  static String airConIcon = '$imagePath/noun-air-conditioner-3548284.png';
+  static String tvIcon = '$imagePath/television.png';
+  static String smartphoneIcon = '$imagePath/smartphone.png';
+  static String fridgeIcon = '$imagePath/smart-fridge.png';
+  static String laptopIcon = '$imagePath/laptop.png';
+  static String smartwatchIcon = '$imagePath/smartwatch.png';
+  static String headphoneIcon = '$imagePath/headphones.png';
+  static String airConIcon = '$imagePath/aircon.png';
 
   // headphone images
   static String headphoneImg = '$headphonePath/h2.png';

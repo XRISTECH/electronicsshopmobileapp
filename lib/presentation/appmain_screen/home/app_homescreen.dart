@@ -40,12 +40,12 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
           body: CustomScrollView(
           controller: _scrollController,
           slivers: [
           _isScrollingDown ? SliverAppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           pinned: true,
           floating: true,
           automaticallyImplyLeading: false,
@@ -75,7 +75,7 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
           Stack(
           clipBehavior: Clip.none,
           children: [
-          const Icon(Icons.shopping_bag_rounded, size: 30),
+          const Icon(Icons.shopping_bag_rounded, color: Colors.white, size: 30),
           Positioned(
           right: -3,
           top: -5,
@@ -109,7 +109,7 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
                   "Shop By Category",
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black87,
+                    color: Colors.white,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -117,7 +117,7 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
                   "See All",
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black45,
+                    color: Colors.white,
                   ),
                 )
               ],
@@ -133,7 +133,7 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
                   "Products For You",
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black87,
+                    color: Colors.white,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -141,7 +141,7 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
                   "See All",
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black45,
+                    color: Colors.white,
                   ),
                 )
               ],

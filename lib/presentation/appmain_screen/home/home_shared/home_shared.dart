@@ -93,7 +93,7 @@ class CategoryList extends StatelessWidget {
                       categoriesList[index].name,
                       style: const TextStyle(
                         fontSize: 14,
-
+                        color: Colors.white
                       ),
                     ),
                   ],
@@ -116,10 +116,10 @@ class ProductsGrid extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
-        border: Border.all(
-          color: Colors.grey[300]!, // Choose your border color
-          width: 1.0, // Choose your border width
-        ),
+        // border: Border.all(
+        //   color: Colors.pink[300]!, // Choose your border color
+        //   width: 0.3, // Choose your border width
+        // ),
       ),
       child: Padding(
         padding: const EdgeInsets.all(5.0),
@@ -146,19 +146,19 @@ class ProductsGrid extends StatelessWidget {
             const SizedBox(height: 3,),
             Row(
               children: [
-                Text(smartphones[index].brand),
-                const SizedBox(width: 3,),
+                Text(smartphones[index].brand, style: TextStyle(color: Colors.white),),
+                const SizedBox(width: 3, ),
                 const Icon(Icons.star, color: Colors.amber, size: 15,),
                 const SizedBox(width: 3,),
-                const Text("4.9"),
+                const Text("4.9", style: TextStyle(color: Colors.white),),
                 const SizedBox(width: 3,),
-                const Text("(250)"),
+                const Text("(250)", style: TextStyle(color: Colors.white),),
               ],
             ),
             const SizedBox(height: 3,),
-            Text(smartphones[index].description, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
+            Text(smartphones[index].description, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
             const SizedBox(height: 3,),
-            Text("N${smartphones[index].price}", style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
+            Text("N${smartphones[index].price}", style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
           ],
         ),
       ),
