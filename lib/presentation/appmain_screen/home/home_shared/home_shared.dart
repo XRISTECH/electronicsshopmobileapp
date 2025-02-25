@@ -128,7 +128,7 @@ class ProductsGrid extends StatelessWidget {
           children: [
             Stack(
               alignment: Alignment.topRight,
-              children: [
+               children: [
                 Image.asset(smartphones[index].img),
                 Positioned(
                     child: Container(
