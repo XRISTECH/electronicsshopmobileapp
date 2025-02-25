@@ -12,7 +12,12 @@ export 'package:electronicsshop_app/presentation/auth/authenticate.dart';
 export 'package:electronicsshop_app/cores/constants.dart';
 export 'package:electronicsshop_app/cores/utils/image_constants.dart';
 export 'package:electronicsshop_app/cores/utils/validation_functions.dart';
-export  'package:electronicsshop_app/presentation/appmain_screen/app_homescreen.dart';
+export  'package:electronicsshop_app/presentation/appmain_screen/home/app_homescreen.dart';
 export 'package:electronicsshop_app/presentation/appbanner/appbanner.dart';
-
+export 'package:electronicsshop_app/data/models.dart';
+export 'package:electronicsshop_app/presentation/appmain_screen/home/home_shared/home_shared.dart';
+export 'package:electronicsshop_app/presentation/appmain_screen/home_controller.dart';
+export 'package:electronicsshop_app/presentation/appmain_screen/notification/notification.dart';
+export 'package:electronicsshop_app/presentation/appmain_screen/profile/profile.dart';
+export 'package:electronicsshop_app/presentation/appmain_screen/search/search.dart';
 

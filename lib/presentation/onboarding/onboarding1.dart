@@ -16,6 +16,7 @@ class _Onboarding1State extends State<Onboarding1> {
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             const SizedBox(height: 20,),
             const Center(child: Text("Welcome to Electro-Store", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),)),
@@ -27,15 +28,23 @@ class _Onboarding1State extends State<Onboarding1> {
             const BuildSample(icon: Icons.local_shipping, title: "Fast Delivery", text: "Receive your orders quickly with our fast delivery service."),
             const SizedBox(height: 20,),
 
-            SizedBox(
-              width: 500,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.pink),
-                  onPressed: (){
-                  widget.switchScreen(1);
-                  },
-                  child: const Text("Next", style: TextStyle(color: Colors.white),)),
-            )
+
+            GestureDetector(
+              onTap: (){
+                widget.switchScreen(1);
+              },
+              child: Container(
+                alignment: Alignment.center,
+                width: 100,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.pink,
+                  borderRadius: BorderRadius.circular(8.0)
+                ),
+                child: const Text("Next", style: TextStyle(color: Colors.white),),
+              ),
+            ),
+
           ],
         ),
       )

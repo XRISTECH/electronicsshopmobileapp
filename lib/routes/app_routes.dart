@@ -1,6 +1,5 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
-
 class AppRoutes {
   static const String onboarding = '/onboarding';
   static const String auth = '/auth';
@@ -11,7 +10,7 @@ class AppRoutes {
     initialRoute: (context) => const Splash(),
     onboarding: (context) => const Onboarding(),
     auth: (context) => const Authenticate(),
-    homeScreen: (context) => const AppHomeScreen(),
+    homeScreen: (context) => const HomeController(),
 
   };
 }

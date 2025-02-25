@@ -3,12 +3,20 @@ import 'package:electronicsshop_app/cores/app_exports.dart';
 
 class AppBanner extends StatelessWidget {
   const AppBanner({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Color(0xffc4d1da),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.8), // Adjust opacity as needed
+              BlendMode.darken, // Blend mode to darken the image
+            ),
+            image: AssetImage(ImageConstants.laptopDisplay,
+
+            )
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -18,31 +26,33 @@ class AppBanner extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("NEW COLLECTION"),
+              const Text("NEW COLLECTION", style: TextStyle(color: Colors.white),),
+              const SizedBox(height: 5,),
               const Row(
                 children: [
-                  Text("20", style: TextStyle(fontSize: 30),),
+                  Text("20", style: TextStyle(fontSize: 30, color: Colors.white), ),
                    Column(
                      children: [
-                       Text("%", style: TextStyle(fontSize: 10),),
-                       Text("off", style: TextStyle(fontSize: 10),),
+                       Text("%", style: TextStyle(fontSize: 13,  color: Colors.white),),
+                       Text("off", style: TextStyle(fontSize: 10,  color: Colors.white),),
                      ],
                    )
                 ],
               ),
+              const SizedBox(height: 5,),
             Container(
               alignment: Alignment.center,
               width: 100,
               height: 30,
               decoration: const BoxDecoration(
-                color: Colors.black,
+                color: Colors.pink,
               ),
               child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
               )
             ],
           ),
           const Expanded(child: SizedBox(),),
-          Image.asset(ImageConstants.appbannerImage, height: 100)
+          Image.asset(ImageConstants.tvImg, height: 100)
         ],
         ),
       )
