@@ -25,119 +25,102 @@ final List<ElectronicProduct> smartphones = [
       name: "Infinix Hot 50i",
       category: "SmartPhones",
       brand: "Infinix",
-      description: "This is an Infinix Hot 50i 6.78 4GB RAM/128GB ROM Android 13- Black",
+      description:
+          "This is an Infinix Hot 50i 6.78 4GB RAM/128GB ROM Android 13- Black",
       price: "138730",
       color: "black",
-      img: "assets/images/smartphones/infinixhot50.jpg",
-      likes: 3
-
-  ),
+      img: "assets/images/smartphones/infinixhot50-removebg-preview.png",
+      likes: 3),
   ElectronicProduct(
       name: "Infinix Hot 50 Pro",
       category: "SmartPhones",
       brand: "Infinix",
-      description: "This is an Infinix Hot 50 Pro+ 6.78 8GB RAM/128GB ROM Android 14- Titanium",
-      price:  "284431",
+      description:
+          "This is an Infinix Hot 50 Pro+ 6.78 8GB RAM/128GB ROM Android 14- Titanium",
+      price: "284431",
       color: "Silver",
-      img: "assets/images/smartphones/infinixhot50pro.jpg",
-      likes: 2
-  ),
+      img:
+          "assets/images/smartphones/Buy Vivo Y51 (4G 4GB 128GB Jazzy Blue) With Official Warranty at Best Price in Pakistan.png",
+      likes: 2),
   ElectronicProduct(
       name: "iPhone 11 PRO MAX",
       category: "SmartPhones",
-
       brand: "Apple",
-
-      description: "This is an Apple iPhone 11 Pro Max-64GB/256GB Network Unlocked -Very Good Condition",
-      price:  "384431",
-
+      description:
+          "This is an Apple iPhone 11 Pro Max-64GB/256GB Network Unlocked -Very Good Condition",
+      price: "384431",
       color: "Gold",
-      img: "assets/images/smartphones/iphone11.jpg",
-      likes: 4
-  ),
+      img: "assets/images/smartphones/iphone11-removebg-preview.png",
+      likes: 4),
   ElectronicProduct(
       name: "iPhone 13 PRO MAX",
       category: "SmartPhones",
-
       brand: "Apple",
-
-      description: "This is an Apple iPhone 13 Pro Max-64GB/256GB Network Unlocked -Very Good Condition",
-      price:  "584431",
-
+      description:
+          "This is an Apple iPhone 13 Pro Max-64GB/256GB Network Unlocked -Very Good Condition",
+      price: "584431",
       color: "black",
-      img: "assets/images/smartphones/iphone13.jpg",
-      likes: 4
-  ),
+      img: "assets/images/smartphones/iphone13-removebg-preview.png",
+      likes: 4),
   ElectronicProduct(
       name: "itelP55T 6.56″ HD",
       category: "SmartPhones",
-
       brand: "Itel",
-      description: "This is an itel P55T 6.56″ HD +Hole 4GB RAM/128GB ROM Android 14 - Gold",
+      description:
+          "This is an itel P55T 6.56″ HD +Hole 4GB RAM/128GB ROM Android 14 - Gold",
       price: "115000",
       color: "Gold",
-      img: "assets/images/smartphones/itelP55t.jpg",
-      likes: 2
-  ),
+      img: "assets/images/smartphones/itelP55t-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "itel S23",
       category: "SmartPhones",
-
       brand: "Itel",
-      description: "This is an itel S23 + 6.78 FHD 8GB RAM/256GB ROM Android 12 - Cyan",
-
+      description:
+          "This is an itel S23 + 6.78 FHD 8GB RAM/256GB ROM Android 12 - Cyan",
       price: "198000",
       color: "Cyan",
-      img: "assets/images/smartphones/itelS23.jpg",
-      likes: 2
-  ),
+      img: "assets/images/smartphones/itelS23-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Samsung Galaxy AO6",
       category: "SmartPhones",
       brand: "Samsung",
-      description: "This is a Samsung Galaxy A06 6.7 4GB RAM/64GB ROM Android 14",
+      description:
+          "This is a Samsung Galaxy A06 6.7 4GB RAM/64GB ROM Android 14",
       price: "144327",
       color: "black",
-      img: "assets/images/smartphones/samsunggalaxya06.jpg",
-      likes: 3
-  ),
+      img: "assets/images/smartphones/samsunggalaxya06-removebg-preview.png",
+      likes: 3),
   ElectronicProduct(
       name: "Samsung Galaxy A16",
-
       category: "SmartPhones",
-
       brand: "Samsung",
-
-      description: "This is a Samsung Galaxy A16 6.7 HD 4GB RAM/128GB ROM Android 14 5000mah",
+      description:
+          "This is a Samsung Galaxy A16 6.7 HD 4GB RAM/128GB ROM Android 14 5000mah",
       price: "224722",
       color: "Light Green",
-      img: "assets/images/smartphones/samsunggalaxya16.jpg",
-      likes: 4
-  ),
+      img: "assets/images/smartphones/samsunggalaxya16-removebg-preview.png",
+      likes: 4),
   ElectronicProduct(
       name: "Tecno POP 8",
       category: "SmartPhones",
-
       brand: "Tecno",
-
-      description: "This is a Tecno POP 8 (BG6) 6.6 HD+,2GB RAM + 64GB ROM 5000mAh, 8MP ",
+      description:
+          "This is a Tecno POP 8 (BG6) 6.6 HD+,2GB RAM + 64GB ROM 5000mAh, 8MP ",
       price: "105576",
       color: "black",
-      img: "assets/images/smartphones/technopop8.jpg",
-      likes: 3
-  ),
+      img: "assets/images/smartphones/technopop8-removebg-preview.png",
+      likes: 3),
   ElectronicProduct(
       name: "Tecno POP 9",
       category: "SmartPhones",
-
       brand: "Tecno",
-
       description: "This is a Tecno Pop 9 6.67 3GB RAM /64GB ROM Android 14",
       price: "124765",
       color: "white",
-      img: "assets/images/smartphones/technopop9.jpg",
-      likes: 2
-  ),
+      img: "assets/images/smartphones/technopop9-removebg-preview.png",
+      likes: 2),
 ];
 
 final List<ElectronicProduct> fridges = [
@@ -145,22 +128,22 @@ final List<ElectronicProduct> fridges = [
       name: "Haier Thermocool Freezer",
       category: "Fridge",
       brand: "Haier Thermacool",
-      description: "This is a Haier Thermocool 146 Litres Chest Freezer (HTF-150) ",
+      description:
+          "This is a Haier Thermocool 146 Litres Chest Freezer (HTF-150) ",
       price: "344785",
       color: "Silver",
-      img: "assets/images/fridge/freezer.jpg",
-      likes: 3
-  ),
+      img: "assets/images/fridge/freezerone-removebg-preview.png",
+      likes: 3),
   ElectronicProduct(
       name: "Haier Thermocool Freezer",
       category: "Fridge",
       brand: "Haier Thermacool",
-      description: "This is a Haier Thermocool 429 Litres Inverter Series Chest Freezer (HTF-150) ",
+      description:
+          "This is a Haier Thermocool 429 Litres Inverter Series Chest Freezer (HTF-150) ",
       price: "1350500",
       color: "Silver",
-      img: "assets/images/fridge/freezerone.jpg",
-      likes: 3
-      ),
+      img: "assets/images/fridge/freezer-removebg-preview.png",
+      likes: 3),
   ElectronicProduct(
       name: "Hisense Freezer",
       category: "Fridge",
@@ -168,97 +151,75 @@ final List<ElectronicProduct> fridges = [
       description: "This is a Hisense Fast Chilling Double Door Fridge",
       price: "387500",
       color: "white",
-      img: "assets/images/fridge/thermacoolfridge.jpg",
-      likes: 2
-  ),
+      img: "assets/images/fridge/thermacoolfridge-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Hisense Freezer",
       category: "Fridge",
       brand: "Hisense",
-
       description: "This is a Hisense 150 Litres Single Door Fridge",
       price: "239900",
       color: "Silver",
-      img: "assets/images/fridge/fridgethree.jpg",
-      likes: 2
-  ),
-  ElectronicProduct(
-      name: "Scanfrost Freezer",
-      category: "Fridge",
-
-      brand: "Scanfrost",
-
-      description: "This is a Scanfrost 150 Litres Double Door Fridge",
-
-      price: "239900",
-
-      color: "white",
-      img: "assets/images/fridge/fridgesix.jpg",
-      likes: 2
-  ),
+      img: "assets/images/fridge/fridgethree-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Scanfrost Freezer",
       category: "Fridge",
       brand: "Scanfrost",
-
-
       description: "This is a Scanfrost 150 Litres Double Door Fridge",
-
       price: "239900",
-
       color: "white",
-
-      img: "assets/images/fridge/fridgenexus.jpg",
-      likes: 4
-  ),
+      img: "assets/images/fridge/myfreezer-removebg-preview.png",
+      likes: 2),
+  ElectronicProduct(
+      name: "Scanfrost Freezer",
+      category: "Fridge",
+      brand: "Scanfrost",
+      description: "This is a Scanfrost 150 Litres Double Door Fridge",
+      price: "239900",
+      color: "white",
+      img: "assets/images/fridge/freezer9-removebg-preview.png",
+      likes: 4),
   ElectronicProduct(
       name: "Nexus Freezer",
       category: "Fridge",
-
       brand: "Nexus",
-      description: "This is a Nexus 44 Liters Single Door No-Frost Refrigerator",
+      description:
+          "This is a Nexus 44 Liters Single Door No-Frost Refrigerator",
       price: "239900",
-
       color: "black",
-      img: "assets/images/fridge/fridgefour.jpg",
-      likes: 2
-  ),
+      img: "assets/images/fridge/fridgefour-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Nexus Freezer",
       category: "Fridge",
-
       brand: "Nexus",
-
-      description: "This is a Nexus 44 Liters Double Door No-Frost Refrigerator",
-
+      description:
+          "This is a Nexus 44 Liters Double Door No-Frost Refrigerator",
       price: "400000",
       color: "white",
-      img: "assets/images/fridge/fridgefive.jpg",
-      likes: 2
-  ),
+      img: "assets/images/fridge/fridgefive-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Polystar Freezer",
       category: "Fridge",
       brand: "Polystar",
-      description: "This is a Polystar 44 Liters Double Door No-Frost Refrigerator",
-
+      description:
+          "This is a Polystar 44 Liters Double Door No-Frost Refrigerator",
       price: "450000",
       color: "white",
-      img: "assets/images/fridge/freezerfour.jpg",
-      likes: 2
-  ),
+      img: "assets/images/fridge/freezerfour-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Polystar Freezer",
       category: "Fridge",
-
       brand: "Polystar",
-      description: "This is a Polystar 44 Liters Double Door No-Frost Refrigerator",
-
+      description:
+          "This is a Polystar 44 Liters Double Door No-Frost Refrigerator",
       price: "400000",
       color: "white",
-      img: "assets/images/fridge/freezer9.jpg",
-      likes: 2
-  ),
+      img: "assets/images/fridge/fridgesix-removebg-preview.png",
+      likes: 2),
 ];
 
 final List<ElectronicProduct> airConditioners = [
@@ -266,122 +227,97 @@ final List<ElectronicProduct> airConditioners = [
       name: "Hisense Air Conditioner",
       category: "AC",
       brand: "Hisense",
-      description: "This is Hisense 1.0HP Inverter Split Air Conditioner(GAC-S09R4I-E) + 12 Months Warranty & Installation Kit",
+      description:
+          "This is Hisense 1.0HP Inverter Split Air Conditioner(GAC-S09R4I-E) + 12 Months Warranty & Installation Kit",
       price: "366676",
       color: "white",
-      img: "assets/images/ac/airconditionone.jpg",
-      likes: 2
-  ),
+      img: "assets/images/ac/airconditionone-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
-      name: "Hisense Air Conditioner",
-
-      category: "AC",
-
-      brand: "Hisense",
-
-      description: "This is a Hisense 1HP Copper Coil Split Air Conditioner (AS09TG)",
-      price: "314900",
-      color: "white",
-
-      img: "assets/images/ac/airconditiontwo.jpg",
-      likes: 5,
+    name: "Hisense Air Conditioner",
+    category: "AC",
+    brand: "Hisense",
+    description:
+        "This is a Hisense 1HP Copper Coil Split Air Conditioner (AS09TG)",
+    price: "314900",
+    color: "white",
+    img: "assets/images/ac/airconditiontwo-removebg-preview.png",
+    likes: 5,
   ),
   ElectronicProduct(
       name: "Haier Thermocool Air Conditioner",
       category: "AC",
-
       brand: "Haier Thermocool",
-      description: "This is a Haier Thermocool 1HP Quantum Air Conditioner (HSU-09CFQE-QW01)",
+      description:
+          "This is a Haier Thermocool 1HP Quantum Air Conditioner (HSU-09CFQE-QW01)",
       price: "360000",
       color: "white",
-      img: "assets/images/ac/airconditionthree.jpg",
-      likes: 3
-  ),
+      img: "assets/images/ac/airconditionthree-removebg-preview.png",
+      likes: 3),
   ElectronicProduct(
       name: "Haier Thermocool Air Conditioner",
       category: "AC",
-
       brand: "Haier Thermocool",
-
-      description: "This is a Haier Thermocool 3hp Floor Standing Inverter Air Conditioner",
+      description:
+          "This is a Haier Thermocool 3hp Floor Standing Inverter Air Conditioner",
       price: "1380500",
       color: "white",
-      img: "assets/images/ac/airconditionfour.jpg",
-      likes: 2
-  ),
+      img: "assets/images/ac/airconditionfour-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Samsung Air Conditioner",
       category: "AC",
-
       brand: "Samsung",
-
       description: "This is a Samsung 1hp Inverter Air Conditioner",
       price: "380500",
       color: "white",
-      img: "assets/images/ac/airconditionfive.jpeg",
-      likes: 2
-  ),
+      img: "assets/images/ac/airconditionfive-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Samsung Air Conditioner",
       category: "AC",
-
       brand: "Samsung",
-
       description: "This is a Samsung 1hp Inverter Air Conditioner",
       price: "380500",
       color: "white",
-      img: "assets/images/ac/airconditionsix.jpeg",
-      likes: 2
-      ),
+      img: "assets/images/ac/airconditionsix-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Panasonic Air Conditioner",
       category: "AC",
-
       brand: "Panasonic",
-
       description: "This is a Panasonic 1hp Inverter Air Conditioner",
       price: "380500",
       color: "white",
-      img: "assets/images/ac/airconditionseven.jpeg",
-      likes: 2
-      ),
+      img: "assets/images/ac/airconditionseven-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Panasonic Air Conditioner",
       category: "AC",
-
       brand: "Panasonic",
-
       description: "This is a Panasonic 1hp Inverter Air Conditioner",
       price: "380500",
       color: "white",
-      img: "assets/images/ac/airconditioneight.jpg",
-      likes: 2
-      ),
+      img: "assets/images/ac/airconditioneight-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "LG Air Conditioner",
       category: "AC",
-
       brand: "LG",
-
       description: "This is a LG 1hp Inverter Air Conditioner",
       price: "380500",
       color: "white",
-      img: "assets/images/ac/airconditionnine.jpeg",
-      likes: 2
-
-     ),
+      img: "assets/images/ac/airconditionnine-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "LG Air Conditioner",
       category: "AC",
-
       brand: "LG",
-
       description: "This is a LG 1hp Inverter Air Conditioner",
       price: "380500",
       color: "white",
-      img: "assets/images/ac/airconditionten.jpeg",
-      likes: 2
-      ),
+      img: "assets/images/ac/airconditionten-removebg-preview.png",
+      likes: 2),
 ];
 
 final List<ElectronicProduct> smartwatches = [
@@ -512,7 +448,7 @@ final List<ElectronicProduct> headphones = [
       description: "This is a Fiver Headphone",
       price: "30000",
       color: "White",
-      img: "assets/images/headphones/h3.png",
+      img: "assets/images/headphones/h3-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
       name: "Headphone",
@@ -521,7 +457,7 @@ final List<ElectronicProduct> headphones = [
       description: "This is a Beat By Dre Headphone",
       price: "40000",
       color: "White",
-      img: "assets/images/headphones/h4.png",
+      img: "assets/images/headphones/h4-removebg-preview.png",
       likes: 5),
   ElectronicProduct(
       name: "Headphone",
@@ -530,7 +466,7 @@ final List<ElectronicProduct> headphones = [
       description: "This is a Beat By Dre Headphone",
       price: "40000",
       color: "White",
-      img: "assets/images/headphones/h5.png",
+      img: "assets/images/headphones/h5-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
       name: "Headphone",
@@ -539,7 +475,7 @@ final List<ElectronicProduct> headphones = [
       description: "This is a Beat By Dre Headphone",
       price: "40000",
       color: "White",
-      img: "assets/images/headphones/h6.png",
+      img: "assets/images/headphones/h6-removebg-preview.png",
       likes: 6),
   ElectronicProduct(
       name: "Headphone",
@@ -548,7 +484,7 @@ final List<ElectronicProduct> headphones = [
       description: "This is a Beat By Dre Headphone",
       price: "40000",
       color: "Red",
-      img: "assets/images/headphones/h7.png",
+      img: "assets/images/headphones/h7-removebg-preview.png",
       likes: 8),
   ElectronicProduct(
       name: "Headphone",
@@ -557,7 +493,7 @@ final List<ElectronicProduct> headphones = [
       description: "This is a Beat By Dre Headphone",
       price: "40000",
       color: "Red",
-      img: "assets/images/headphones/h8.png",
+      img: "assets/images/headphones/h8-removebg-preview.png",
       likes: 5),
   ElectronicProduct(
       name: "Headphone",
@@ -575,9 +511,8 @@ final List<ElectronicProduct> headphones = [
       description: "This is a Beat By Dre Headphone",
       price: "40000",
       color: "Deep Black",
-      img: "assets/images/headphones/h10.png",
+      img: "assets/images/headphones/h10-removebg-preview.png",
       likes: 15),
-
 ];
 
 final List<ElectronicProduct> laptops = [
@@ -588,91 +523,89 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "100000",
       color: "White",
-      img: "assets/images/laptops/laptop1.png",
-      likes: 3
-  ),  ElectronicProduct(
+      img: "assets/images/laptops/laptop1-removebg-preview.png",
+      likes: 3),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Samsung",
       description: "This is a laptop",
       price: "200000",
       color: "Black",
-      img: "assets/images/laptops/laptop2.png",
-      likes: 1
-  ),  ElectronicProduct(
+      img: "assets/images/laptops/laptop2-removebg-preview.png",
+      likes: 1),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Hp",
       description: "This is a laptop",
       price: "100000",
       color: "Black",
-      img: "assets/images/laptops/laptop3.png",
-      likes: 3
-  ),  ElectronicProduct(
+      img: "assets/images/headphones/h3-removebg-preview.png",
+      likes: 3),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Hp",
       description: "This is a laptop",
       price: "100000",
       color: "Grey",
-      img: "assets/images/laptops/laptop4.png",
-      likes: 2
-  ),  ElectronicProduct(
+      img: "assets/images/headphones/h4-removebg-preview.png",
+      likes: 2),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Hp",
       description: "This is a laptop",
       price: "300000",
       color: "Gold",
-      img: "assets/images/laptops/laptop5.png",
-      likes: 4
-  ),  ElectronicProduct(
+      img: "assets/images/headphones/h5-removebg-preview.png",
+      likes: 4),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Dell",
       description: "This is a laptop",
       price: "100000",
       color: "Black",
-      img: "assets/images/laptops/laptop6.png",
-      likes: 3
-  ),  ElectronicProduct(
+      img: "assets/images/headphones/h6-removebg-preview.png",
+      likes: 3),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Acer",
       description: "This is a laptop",
       price: "100000",
       color: "Black",
-      img: "assets/images/laptops/laptop7.png",
-      likes: 3
-  ),  ElectronicProduct(
+      img: "assets/images/headphones/h7-removebg-preview.png",
+      likes: 3),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Macbook",
       description: "This is a laptop",
       price: "100000",
       color: "White",
-      img: "assets/images/laptops/laptop8.png",
-      likes: 3
-  ),  ElectronicProduct(
+      img: "assets/images/headphones/h8-removebg-preview.png",
+      likes: 3),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Macbook",
       description: "This is a laptop",
       price: "300000",
       color: "Grey",
-      img: "assets/images/laptops/laptop9.png",
-      likes: 3
-  ),  ElectronicProduct(
+      img: "assets/images/headphones/h9.png",
+      likes: 3),
+  ElectronicProduct(
       name: "laptop",
       category: "Laptop",
       brand: "Macbook",
       description: "This is a laptop",
       price: "100000",
       color: "White",
-      img: "assets/images/laptops/laptop10.png",
-      likes: 3
-  ),
-
+      img: "assets/images/headphones/h10-removebg-preview.png",
+      likes: 3),
 ];
 
 final List<ElectronicProduct> televisions = [
@@ -680,128 +613,102 @@ final List<ElectronicProduct> televisions = [
       name: "Hisense 43''Smart TV",
       category: "Television",
       brand: "Hisense",
-      description: "This is a Hisense 43''Smart TV With Bluetooth,Netflix,Youtube",
+      description:
+          "This is a Hisense 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "450000",
       color: "black",
-      img: "assets/images/televisions/hisensetv.jpg",
-      likes: 2
-  ),
+      img: "assets/images/televisions/hisensetv-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Polystar 43''Smart TV",
       category: "Television",
       brand: "Polystar",
-
-
-      description: "This is a Polystar 43''Smart TV With Bluetooth,Netflix,Youtube",
-
+      description:
+          "This is a Polystar 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "700000",
       color: "black",
-
-      img: "assets/images/televisions/Polystar.jpg",
-      likes:  3
-  ),
+      img: "assets/images/televisions/Polystar-removebg-preview.png",
+      likes: 3),
   ElectronicProduct(
       name: "Samsung 43''Smart TV",
       category: "Television",
-
       brand: "Samsung",
-
-      description: "This is a Samsung 43''Smart TV With Bluetooth,Netflix,Youtube",
+      description:
+          "This is a Samsung 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "700000",
-
       color: "black",
-
-      img: "assets/images/televisions/samsungtv.jpg",
-      likes: 2
-  ),
+      img: "assets/images/televisions/samsungtv-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Nexus 43''Smart TV",
-
       category: "Television",
-
       brand: "Nexus",
-      description: "This is a Nexus 43''Smart TV With Bluetooth,Netflix,Youtube",
+      description:
+          "This is a Nexus 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "400000",
       color: "black",
-      img: "assets/images/televisions/Nexustv.jpg",
-      likes: 4
-  ),
+      img: "assets/images/televisions/Nexustv-removebg-preview.png",
+      likes: 4),
   ElectronicProduct(
       name: "Royal 43''Smart TV",
-
       category: "Television",
-
       brand: "Royal",
-      description: "This is a Royal 43''Smart TV With Bluetooth,Netflix,Youtube",
-
+      description:
+          "This is a Royal 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "500000",
       color: "black",
-      img: "assets/images/televisions/royaltv.jpg",
-      likes: 2
-  ),
+      img: "assets/images/televisions/royaltv-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Hisense 43''Smart TV",
       category: "Television",
       brand: "Hisense",
-      description: "This is a Hisense 43''Smart TV With Bluetooth,Netflix,Youtube",
+      description:
+          "This is a Hisense 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "450000",
       color: "black",
-      img: "assets/images/televisions/Amanitv.jpg",
-      likes: 2
-  ),
+      img: "assets/images/televisions/Amanitv-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Polystar 43''Smart TV",
       category: "Television",
       brand: "Polystar",
-
-
-      description: "This is a Polystar 43''Smart TV With Bluetooth,Netflix,Youtube",
-
+      description:
+          "This is a Polystar 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "700000",
       color: "black",
-
-      img: "assets/images/televisions/Hikerstv.jpg",
-      likes:  3
-  ),
+      img: "assets/images/televisions/Hikerstv-removebg-preview.png",
+      likes: 3),
   ElectronicProduct(
       name: "Samsung 43''Smart TV",
       category: "Television",
-
       brand: "Samsung",
-
-      description: "This is a Samsung 43''Smart TV With Bluetooth,Netflix,Youtube",
+      description:
+          "This is a Samsung 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "700000",
-
       color: "black",
-
-      img: "assets/images/televisions/infinitytv.jpg",
-      likes: 2
-  ),
+      img: "assets/images/televisions/infinitytv-removebg-preview.png",
+      likes: 2),
   ElectronicProduct(
       name: "Nexus 43''Smart TV",
-
       category: "Television",
-
       brand: "Nexus",
-      description: "This is a Nexus 43''Smart TV With Bluetooth,Netflix,Youtube",
+      description:
+          "This is a Nexus 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "400000",
       color: "black",
-      img: "assets/images/televisions/sonixtv.jpg",
-      likes: 4
-  ),
+      img: "assets/images/televisions/sonixtv-removebg-preview.png",
+      likes: 4),
   ElectronicProduct(
       name: "Royal 43''Smart TV",
-
       category: "Television",
-
       brand: "Royal",
-      description: "This is a Royal 43''Smart TV With Bluetooth,Netflix,Youtube",
-
+      description:
+          "This is a Royal 43''Smart TV With Bluetooth,Netflix,Youtube",
       price: "500000",
       color: "black",
-      img: "assets/images/televisions/ufctv.jpg",
-      likes: 2
-  ),
+      img: "assets/images/televisions/ufctv-removebg-preview.png",
+      likes: 2),
 ];
 
 class Category {
@@ -821,7 +728,8 @@ final List<Category> categoriesList = [
   ),
   Category(
     name: "Fridge",
-    image: "assets/images/Samsung Family Hub™️ _ Samsung US _ undefined undefined.png",
+    image:
+        "assets/images/Samsung Family Hub™️ _ Samsung US _ undefined undefined.png",
   ),
   Category(
     name: "AC",
@@ -829,15 +737,18 @@ final List<Category> categoriesList = [
   ),
   Category(
     name: "SmartWatch",
-    image: "assets/images/Apple Watch Repair Service in Dubai Abu Dhabi Sharjah UAE.png",
+    image:
+        "assets/images/Apple Watch Repair Service in Dubai Abu Dhabi Sharjah UAE.png",
   ),
   Category(
     name: "HeadPhone",
-    image: "assets/images/Sennheiser Headphone PNG Images (Transparent HD Photo Clipart).png",
+    image:
+        "assets/images/Sennheiser Headphone PNG Images (Transparent HD Photo Clipart).png",
   ),
   Category(
     name: "Laptop",
-    image: "assets/images/Download Dell Laptop Png Images Background png - Free PNG Images.png",
+    image:
+        "assets/images/Download Dell Laptop Png Images Background png - Free PNG Images.png",
   ),
   Category(
     name: "Television",
