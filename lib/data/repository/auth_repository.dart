@@ -103,8 +103,7 @@ class AuthRepository {
 
     try {
       String? token = await _localStorageRepository.getToken();
-
-      if (token != null) {
+      if (token != '') {
         var res = await _client.get(
           Uri.parse('$host/users/user'),
           headers: {

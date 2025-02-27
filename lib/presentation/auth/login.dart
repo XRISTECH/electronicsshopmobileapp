@@ -139,10 +139,8 @@ class _ElectronicsShopLoginState extends ConsumerState<ElectronicsShopLogin> {
         email: _email.text.trim(),
         password: _password.text.trim(),
       );
-
       if (errorModel.error == null && errorModel.data != null) {
         ref.read(userProvider.notifier).state = errorModel.data;
-        NavigatorService.popAndPushNamed(AppRoutes.homeScreen);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

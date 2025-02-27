@@ -1,25 +1,20 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
 
-class Splash extends ConsumerStatefulWidget {
+ class Splash extends StatefulWidget {
   const Splash({super.key});
 
   @override
-  ConsumerState<Splash> createState() => _SplashState();
+ State<Splash> createState() => _SplashState();
 }
 
-class _SplashState extends ConsumerState<Splash> {
+class _SplashState extends State<Splash> {
 
 
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3),() {
-      UserModel? user = ref.watch(userProvider);
-      if(user != null){
-        NavigatorService.popAndPushNamed(AppRoutes.wrapper);
-      }else{
-        NavigatorService.popAndPushNamed(AppRoutes.onboarding);
-      }
+      NavigatorService.popAndPushNamed(AppRoutes.onboarding);
     },);
     super.initState();
   }
@@ -38,7 +33,7 @@ class _SplashState extends ConsumerState<Splash> {
                   Colors.black.withOpacity(0.9), // Adjust opacity as needed
                   BlendMode.darken, // Blend mode to darken the image
                 ),
-                image: AssetImage(ImageConstants.headphonePath)
+                image: AssetImage(ImageConstants.splashscreenImage)
             ) ,
 
           ),
