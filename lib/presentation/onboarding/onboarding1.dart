@@ -21,11 +21,11 @@ class _Onboarding1State extends State<Onboarding1> {
             const SizedBox(height: 20,),
             const Center(child: Text("Welcome to Electro-Store", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),)),
             const SizedBox(height: 30,),
-            const BuildSample(icon: Icons.tv, title: "Wide Range Of Products", text: "Explore a vast selection of electronics from top brands."),
+            const Center(child: BuildSample(icon: Icons.tv, title: "Wide Range Of Products", text: "Explore a vast selection of electronics from top brands.")),
             const SizedBox(height: 30,),
-            const BuildSample(icon: Icons.new_label_rounded, title: "Exclusive Offers", text: "Get access to exclusive deals and discounts."),
+            const Center(child: BuildSample(icon: Icons.new_label_rounded, title: "Exclusive Offers", text: "Get access to exclusive deals and discounts.")),
             const SizedBox(height: 30,),
-            const BuildSample(icon: Icons.local_shipping, title: "Fast Delivery", text: "Receive your orders quickly with our fast delivery service."),
+            const Center(child: BuildSample(icon: Icons.local_shipping, title: "Fast Delivery", text: "Receive your orders quickly with our fast delivery service.")),
             const SizedBox(height: 20,),
 
 

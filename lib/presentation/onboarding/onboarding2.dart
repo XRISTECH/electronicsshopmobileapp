@@ -33,27 +33,33 @@ class _Onboarding2State extends State<Onboarding2> {
                 const SizedBox(
                   height: 30,
                 ),
-                BuildSections(
-                    image: ImageConstants.phoneImage,
-                    title: "Smartphone X",
-                    text:
-                        "Experience the latest technology in your hand with cutting-edge features and design"),
+                Center(
+                  child: BuildSections(
+                      image: ImageConstants.phoneImage,
+                      title: "Smartphone X",
+                      text:
+                          "Experience the latest technology in your hand with cutting-edge features and design"),
+                ),
                 const SizedBox(
                   height: 30,
                 ),
-                BuildSections(
-                    image: ImageConstants.headphoneImg,
-                    title: "Wireless Headphones",
-                    text:
-                        "Immerse yourself in music with noise-cancellation and superior sound quality"),
+                Center(
+                  child: BuildSections(
+                      image: ImageConstants.headphoneImg,
+                      title: "Wireless Headphones",
+                      text:
+                          "Immerse yourself in music with noise-cancellation and superior sound quality"),
+                ),
                 const SizedBox(
                   height: 30,
                 ),
-                BuildSections(
-                    image: ImageConstants.smartwatchImage,
-                    title: "Smartwatch Pro",
-                    text:
-                        "Stay connected and track your health with this efficient and stylish smartwatch"),
+                Center(
+                  child: BuildSections(
+                      image: ImageConstants.smartwatchImage,
+                      title: "Smartwatch Pro",
+                      text:
+                          "Stay connected and track your health with this efficient and stylish smartwatch"),
+                ),
                 const SizedBox(
                   height: 30,
                 ),
