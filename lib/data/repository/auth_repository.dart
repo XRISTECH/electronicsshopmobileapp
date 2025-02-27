@@ -1,34 +1,38 @@
-
-
+// Import necessary dependencies
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
-
-
+// Provider for managing authentication repository
 final authRepositoryProvider = Provider(
-      (ref) => AuthRepository(
-      client: Client(),
-      localStorageRepository: LocalStorageRepository()),
+  (ref) => AuthRepository(
+      client: Client(), // HTTP client for making network requests
+      localStorageRepository:
+          LocalStorageRepository()), // Handles local storage
 );
 
+// Provides a state management variable to store user data
 final userProvider = StateProvider<UserModel?>((ref) => null);
 
 class AuthRepository {
   final Client _client;
   final LocalStorageRepository _localStorageRepository;
 
+// Constructor to initialize the authentication repository
   AuthRepository({
     required Client client,
     required LocalStorageRepository localStorageRepository,
-  })  :  _client = client,
+  })  : _client = client,
         _localStorageRepository = localStorageRepository;
 
   Future<ErrorModel> loginUser({
     required String email,
     required String password,
   }) async {
-    ErrorModel error = ErrorModel(error: 'An unexpected error occurred', data: null);
+    // Default error response
+    ErrorModel error =
+        ErrorModel(error: 'An unexpected error occurred', data: null);
 
     try {
+      // Making a POST request to the authentication endpoint
       final response = await _client.post(
         Uri.parse('$host/auth'), // Ensure `$host` is correctly set
         headers: {'Content-Type': 'application/json'},
@@ -37,20 +41,22 @@ class AuthRepository {
           "password": password,
         }),
       );
-
+      // Handling different response statuses
       if (response.statusCode == 200) {
         final responseData = jsonDecode(response.body);
-        final user = UserModel.fromJson(responseData['user']); // Deserialize user data
+        final user =
+            UserModel.fromJson(responseData['user']); // Deserialize user data
         final token = responseData['accessToken'];
         final refreshToken = responseData['refreshToken'];
-        // Store token locally
+        // Store token locally for future authentication
         _localStorageRepository.setToken(token);
         _localStorageRepository.setRefreshToken(refreshToken);
         error = ErrorModel(error: null, data: user);
       } else if (response.statusCode == 400) {
-        error =  ErrorModel(error: 'All fields are required', data: null);
+        error = ErrorModel(error: 'All fields are required', data: null);
       } else if (response.statusCode == 401) {
-        error =  ErrorModel(error: 'Unauthorized - Invalid credentials', data: null);
+        error =
+            ErrorModel(error: 'Unauthorized - Invalid credentials', data: null);
       } else {
         error = ErrorModel(error: 'Error logging in', data: null);
       }
@@ -60,18 +66,19 @@ class AuthRepository {
     return error;
   }
 
-
+// Method to create a new user
   Future<ErrorModel> createUser({
     required String username,
     required String email,
     required String password,
     List<String>? roles, // Optional roles field
   }) async {
-    ErrorModel error = ErrorModel(error: 'An unexpected error occurred', data: null);
+    ErrorModel error =
+        ErrorModel(error: 'An unexpected error occurred', data: null);
 
     try {
       final response = await _client.post(
-        Uri.parse('$host/users'),
+        Uri.parse('$host/users'), // API endpoint to create a user
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           "username": username,
@@ -80,13 +87,14 @@ class AuthRepository {
           "roles": roles ?? [],
         }),
       );
-
+      // Handling different response statuses
       if (response.statusCode == 201) {
         error = ErrorModel(error: null, data: "User created successfully");
       } else if (response.statusCode == 400) {
         error = ErrorModel(error: 'All fields are required', data: null);
       } else if (response.statusCode == 409) {
-        error = ErrorModel(error: 'Username and Email have been taken', data: null);
+        error =
+            ErrorModel(error: 'Username and Email have been taken', data: null);
       } else {
         error = ErrorModel(error: 'Error creating user', data: null);
       }
@@ -96,23 +104,23 @@ class AuthRepository {
     return error;
   }
 
-
-  // getting logged in user data
+  // Method to get the currently logged-in user data
   Future<ErrorModel> getUserData() async {
-    ErrorModel error = ErrorModel(error: 'An unexpected error occurred', data: null);
+    ErrorModel error =
+        ErrorModel(error: 'An unexpected error occurred', data: null);
 
     try {
       String? token = await _localStorageRepository.getToken();
 
       if (token != null) {
         var res = await _client.get(
-          Uri.parse('$host/users/user'),
+          Uri.parse('$host/users/user'), // API endpoint to get user details
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer $token',
+            'Authorization': 'Bearer $token', // Pass token for authentication
           },
         );
-
+        // Handling different response statuses
         if (res.statusCode == 200) {
           final newUser = UserModel.fromJson(jsonDecode(res.body)['user']);
           error = ErrorModel(error: null, data: newUser);
@@ -122,7 +130,8 @@ class AuthRepository {
           if (refreshSuccess) {
             return getUserData(); // Retry request after refreshing token
           } else {
-            error = ErrorModel(error: 'Session expired. Please log in again.', data: null);
+            error = ErrorModel(
+                error: 'Session expired. Please log in again.', data: null);
           }
         } else {
           error = ErrorModel(error: 'Error fetching user data', data: null);
@@ -136,18 +145,18 @@ class AuthRepository {
     return error;
   }
 
-
-
+// Method to refresh access token
   Future<bool> _refreshToken() async {
     try {
-      String? refreshToken = await _localStorageRepository.getRefreshToken();
+      String? refreshToken = await _localStorageRepository
+          .getRefreshToken(); // Retrieve refresh token
 
       if (refreshToken == null) {
         return false; // No refresh token available, force logout
       }
 
       var res = await _client.post(
-        Uri.parse('$host/auth/refresh'),
+        Uri.parse('$host/auth/refresh'), // API endpoint to refresh token
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({"refreshToken": refreshToken}),
       );
@@ -156,7 +165,8 @@ class AuthRepository {
         final responseData = jsonDecode(res.body);
         final newAccessToken = responseData['accessToken'];
 
-        _localStorageRepository.setToken(newAccessToken);
+        _localStorageRepository
+            .setToken(newAccessToken); // Store new access token
         return true; // Successfully refreshed token
       } else {
         return false; // Refresh token is invalid/expired
@@ -166,12 +176,12 @@ class AuthRepository {
     }
   }
 
-
+// Method to sign out user and clear stored tokens
   void signOut(WidgetRef ref) async {
-    _localStorageRepository.setToken('');
-    _localStorageRepository.setRefreshToken('');
-    ref.invalidate(userProvider);
-    print("UserProvider invalidated.");
+    _localStorageRepository.setToken(''); // Clear token
+    _localStorageRepository.setRefreshToken(''); // Clear refresh token
+    ref.invalidate(userProvider); // Reset User state
+    // ignore: avoid_print
+    print("UserProvider invalidated."); // Print Debugging message
   }
-
 }

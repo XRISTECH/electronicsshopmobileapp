@@ -1,3 +1,4 @@
+// PACKAGES
 export 'package:flutter/material.dart';
 export 'package:flutter_spinkit/flutter_spinkit.dart';
 export 'package:electronicsshop_app/presentation/onboarding/onboarding.dart';
@@ -22,8 +23,6 @@ export 'package:electronicsshop_app/presentation/appmain_screen/profile/profile.
 export 'package:electronicsshop_app/presentation/appmain_screen/search/search.dart';
 export 'package:electronicsshop_app/data/repository/auth_repository.dart';
 export 'package:electronicsshop_app/presentation/wrapper/wrapper.dart';
-
-//packages
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:electronicsshop_app/data/repository/local_storage_repository.dart';
 export 'package:flutter_riverpod/flutter_riverpod.dart';
