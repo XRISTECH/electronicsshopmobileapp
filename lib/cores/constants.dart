@@ -1,6 +1,6 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
-const host = 'http://192.168.43.165:3500';
+const host = 'https://e-store-api-57kb.onrender.com';
 
 var textInputDecoration = InputDecoration(
   hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
