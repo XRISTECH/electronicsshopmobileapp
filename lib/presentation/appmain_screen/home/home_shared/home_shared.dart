@@ -128,17 +128,17 @@ class ProductsGrid extends StatelessWidget {
           children: [
             Stack(
               alignment: Alignment.topRight,
-              children: [
+               children: [
                 Image.asset(smartphones[index].img),
                 Positioned(
                     child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.black,
                             borderRadius: BorderRadius.circular(8.0)
                         ),
                         child: const Padding(
                           padding: EdgeInsets.all(5.0),
-                          child: Icon(Icons.favorite_border, color: Colors.black,),
+                          child: Icon(Icons.favorite_border, color: Colors.pink,),
                         ))
                 )
               ],

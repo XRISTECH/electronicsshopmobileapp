@@ -1,16 +1,23 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
-class AppHomeScreen extends StatefulWidget {
+class AppHomeScreen extends ConsumerStatefulWidget {
   final Function onSwitch;
   const AppHomeScreen({super.key, required this.onSwitch});
 
   @override
-  State<AppHomeScreen> createState() => _AppHomeScreenState();
+  ConsumerState<AppHomeScreen> createState() => _AppHomeScreenState();
 }
 
-class _AppHomeScreenState extends State<AppHomeScreen> {
+class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
   final ScrollController _scrollController = ScrollController();
   bool _isScrollingDown = false;
+
+
+  void signOut() {
+    print("Signing out...");
+    ref.read(authRepositoryProvider).signOut(ref);
+    NavigatorService.popAndPushNamed(AppRoutes.wrapper);
+  }
 
   @override
   void initState() {
@@ -70,7 +77,11 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
           child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-          const Icon(Icons.bolt, color: Colors.pink, size: 30),
+          GestureDetector(
+            onTap: (){
+              signOut();
+            },
+              child: const Icon(Icons.bolt, color: Colors.pink, size: 30)),
           const Expanded(child: SizedBox()),
           Stack(
           clipBehavior: Clip.none,

@@ -1,5 +1,6 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
+const host = 'http://192.168.43.165:3500';
 
 var textInputDecoration = InputDecoration(
   hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
@@ -14,4 +15,9 @@ var textInputDecoration = InputDecoration(
     borderRadius: BorderRadius.circular(8),
     borderSide: const BorderSide(color: Colors.black),
   ),
+);
+
+var inputBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(8),
+  borderSide: BorderSide(color: Colors.grey[400]!),
 );

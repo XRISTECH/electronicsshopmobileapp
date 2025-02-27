@@ -20,6 +20,13 @@ export 'package:electronicsshop_app/presentation/appmain_screen/home_controller.
 export 'package:electronicsshop_app/presentation/appmain_screen/notification/notification.dart';
 export 'package:electronicsshop_app/presentation/appmain_screen/profile/profile.dart';
 export 'package:electronicsshop_app/presentation/appmain_screen/search/search.dart';
-export  'package:electronicsshop_app/presentation/appitemsdetailsscreen.dart/appitemsdetails.dart';
+export 'package:electronicsshop_app/data/repository/auth_repository.dart';
+export 'package:electronicsshop_app/presentation/wrapper/wrapper.dart';
 
+//packages
+export 'package:shared_preferences/shared_preferences.dart';
+export 'package:electronicsshop_app/data/repository/local_storage_repository.dart';
+export 'package:flutter_riverpod/flutter_riverpod.dart';
+export 'package:http/http.dart';
+export 'dart:convert';
 

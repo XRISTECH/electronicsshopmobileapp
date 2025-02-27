@@ -59,7 +59,7 @@ class _Onboarding2State extends State<Onboarding2> {
                 ),
                 GestureDetector(
                   onTap: (){
-                    NavigatorService.pushNamed(AppRoutes.auth);
+                    NavigatorService.popAndPushNamed(AppRoutes.wrapper);
                   },
                   child: Container(
                     alignment: Alignment.center,
