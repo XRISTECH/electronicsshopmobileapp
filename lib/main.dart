@@ -37,9 +37,11 @@ class MyApp extends ConsumerWidget {
         );
       },
       loading: () => const MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Loading()
       ),
       error: (err, stack) => MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
           body: Center(child: Text("Error: ${err.toString()}")),
         ),
