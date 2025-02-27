@@ -16,7 +16,6 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
   void signOut() {
     print("Signing out...");
     ref.read(authRepositoryProvider).signOut(ref);
-    NavigatorService.popAndPushNamed(AppRoutes.wrapper);
   }
 
   @override
