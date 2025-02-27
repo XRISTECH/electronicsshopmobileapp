@@ -45,6 +45,7 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    final user = ref.read(userProvider);
     return Scaffold(
       backgroundColor: Colors.black,
           body: CustomScrollView(
@@ -81,6 +82,7 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
               signOut();
             },
               child: const Icon(Icons.bolt, color: Colors.pink, size: 30)),
+          Text("Welcome ${user!.username} !", style: const TextStyle(color: Colors.white, fontSize: 16),),
           const Expanded(child: SizedBox()),
           Stack(
           clipBehavior: Clip.none,
