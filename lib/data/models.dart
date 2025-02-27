@@ -20,6 +20,52 @@ class ElectronicProduct {
   });
 }
 
+class UserModel {
+  final String uid;
+  final String username;
+  final String email;
+
+
+  UserModel(
+      {required this.username,
+        required this.email,
+        required this.uid
+      });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'username': username,
+      'email': email,
+    };
+  }
+
+  static UserModel fromJson(Map<String, dynamic> json) => UserModel(
+      username: json['username'] ?? '',
+      email: json['email'] ?? '',
+      uid: json['_id'] ?? ''
+  );
+
+  UserModel copyWith(
+      {
+        String? username,
+        String? email,
+        String? uid,
+      }) {
+    return UserModel(
+        username: username ?? this.username,
+        email: email ?? this.email,
+        uid: uid ?? this.uid);
+  }
+}
+
+
+class ErrorModel {
+  final String? error;
+  final dynamic data;
+
+  ErrorModel({required this.error, required this.data});
+}
+
 final List<ElectronicProduct> smartphones = [
   ElectronicProduct(
       name: "Infinix Hot 50i",

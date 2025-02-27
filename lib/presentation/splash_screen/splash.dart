@@ -1,23 +1,29 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
 
-class Splash extends StatefulWidget {
+class Splash extends ConsumerStatefulWidget {
   const Splash({super.key});
 
   @override
-  State<Splash> createState() => _SplashState();
+  ConsumerState<Splash> createState() => _SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashState extends ConsumerState<Splash> {
+
 
   @override
   void initState() {
-    super.initState();
     Future.delayed(const Duration(seconds: 3),() {
-    NavigatorService.popAndPushNamed(AppRoutes.onboarding);
+      UserModel? user = ref.watch(userProvider);
+      if(user != null){
+        NavigatorService.popAndPushNamed(AppRoutes.wrapper);
+      }else{
+        NavigatorService.popAndPushNamed(AppRoutes.onboarding);
+      }
     },);
-
+    super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

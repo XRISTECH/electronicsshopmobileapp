@@ -1,16 +1,17 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
-class ElectronicsShopLogin extends StatefulWidget {
+class ElectronicsShopLogin extends ConsumerStatefulWidget {
   final Function toggleView;
   const ElectronicsShopLogin({super.key, required this.toggleView});
 
   @override
-  State<ElectronicsShopLogin> createState() => _ElectronicsShopLoginState();
+  ConsumerState<ElectronicsShopLogin> createState() => _ElectronicsShopLoginState();
 }
 
-class _ElectronicsShopLoginState extends State<ElectronicsShopLogin> {
+class _ElectronicsShopLoginState extends ConsumerState<ElectronicsShopLogin> {
   final _formKey = GlobalKey<FormState>();
   bool _showPassword = true;
+  bool _isLoading = false;
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   @override
@@ -71,7 +72,6 @@ class _ElectronicsShopLoginState extends State<ElectronicsShopLogin> {
                               setState(() {
                                 _showPassword = !_showPassword; // Toggle the password visibility
                               });
-                              print(_showPassword);
                             },
                             child: Icon(
                               _showPassword ? Icons.visibility_off : Icons.visibility
@@ -93,22 +93,27 @@ class _ElectronicsShopLoginState extends State<ElectronicsShopLogin> {
                           height: 50,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(backgroundColor: Colors.pink),
-                              onPressed: (){
-                              _login();
-                          }, child: const Text("Login", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
+                              onPressed:_isLoading ? null : _login,
+                              child: _isLoading
+                                  ? const CircularProgressIndicator(color: Colors.white)
+                                  : const Text(
+                                "Login",
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                              ),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 30,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text("New Here?", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                          const Text("New Here?", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                           const SizedBox(width: 20,),
                           GestureDetector(
                             onTap: (){
                               widget.toggleView();
                             },
-                              child: Text("Sign Up", style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold),))
+                              child: const Text("Sign Up", style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold),))
                         ],
                       )
                     ],
@@ -122,16 +127,36 @@ class _ElectronicsShopLoginState extends State<ElectronicsShopLogin> {
     );
 
   }
-  void _login() {
-    // Handle login button press
+
+  void _login() async {
     if (_formKey.currentState!.validate()) {
-      NavigatorService.popAndPushNamed(AppRoutes.homeScreen);
+      setState(() {
+        _isLoading = true;
+      });
+
+      final authRepo = ref.read(authRepositoryProvider);
+      final errorModel = await authRepo.loginUser(
+        email: _email.text.trim(),
+        password: _password.text.trim(),
+      );
+
+      if (errorModel.error == null && errorModel.data != null) {
+        ref.read(userProvider.notifier).state = errorModel.data;
+        NavigatorService.popAndPushNamed(AppRoutes.homeScreen);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(errorModel.error ?? "Login failed"),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 }
 
 
-var inputBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(8),
-  borderSide: BorderSide(color: Colors.grey[400]!),
-);
