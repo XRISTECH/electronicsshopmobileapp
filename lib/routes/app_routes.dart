@@ -7,7 +7,8 @@ class AppRoutes {
   static const String homeScreen = '/homescreen';
 
   static Map<String, WidgetBuilder> routes = {
-    initialRoute: (context) => const Splash(),
+    //initialRoute: (context) => const Splash(),
+    initialRoute: (context) => const AppItemsDetails(),
     onboarding: (context) => const Onboarding(),
     auth: (context) => const Authenticate(),
     homeScreen: (context) => const HomeController(),

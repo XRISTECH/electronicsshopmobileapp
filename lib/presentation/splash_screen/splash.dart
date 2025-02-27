@@ -32,7 +32,7 @@ class _SplashState extends State<Splash> {
                   Colors.black.withOpacity(0.9), // Adjust opacity as needed
                   BlendMode.darken, // Blend mode to darken the image
                 ),
-                image: AssetImage(ImageConstants.splashscreenImage)
+                image: AssetImage(ImageConstants.headphonePath)
             ) ,
 
           ),

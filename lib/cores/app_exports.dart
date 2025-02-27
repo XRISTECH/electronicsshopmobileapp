@@ -20,4 +20,6 @@ export 'package:electronicsshop_app/presentation/appmain_screen/home_controller.
 export 'package:electronicsshop_app/presentation/appmain_screen/notification/notification.dart';
 export 'package:electronicsshop_app/presentation/appmain_screen/profile/profile.dart';
 export 'package:electronicsshop_app/presentation/appmain_screen/search/search.dart';
+export  'package:electronicsshop_app/presentation/appitemsdetailsscreen.dart/appitemsdetails.dart';
+
 
