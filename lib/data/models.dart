@@ -18,6 +18,21 @@ class ElectronicProduct {
     required this.img,
     required this.likes,
   });
+
+
+  factory ElectronicProduct.empty(){
+    return ElectronicProduct(
+        name: "",
+        category: "",
+        brand: "",
+        description: "",
+        price: "",
+        color: "",
+        img: "",
+        likes: 0
+    );
+
+  }
 }
 
 class UserModel {

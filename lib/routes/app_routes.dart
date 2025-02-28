@@ -1,6 +1,8 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
 
+
+
 class AppRoutes {
   static const String onboarding = '/onboarding';
   static const String auth = '/auth';
@@ -9,12 +11,14 @@ class AppRoutes {
   static const String wrapper = '/wrapper';
 
 
+
   static Map<String, WidgetBuilder> routes = {
     initialRoute: (context) => const Splash(),
     onboarding: (context) => const Onboarding(),
     auth: (context) => const Authenticate(),
     homeScreen: (context) => const HomeController(),
-    wrapper: (context) => const Wrapper()
+    wrapper: (context) => const Wrapper(),
+
 
   };
 }

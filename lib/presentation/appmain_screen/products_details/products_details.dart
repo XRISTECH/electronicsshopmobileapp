@@ -1,8 +1,9 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
-import 'package:flutter/material.dart';
+import 'package:electronicsshop_app/presentation/appmain_screen/products_details/shared/product_details_shared.dart';
 
 class AppItemsDetails extends StatefulWidget {
-  const AppItemsDetails({super.key});
+  final ElectronicProduct product;
+  const AppItemsDetails({super.key, required this.product});
 
   @override
   State<AppItemsDetails> createState() => _AppItemsDetailsState();
@@ -13,8 +14,19 @@ class _AppItemsDetailsState extends State<AppItemsDetails> {
   int selectedColorIndex = 0;
   int selectedSizeIndex = 0;
 
+
   final List<Color> availableColors = [Colors.red, Colors.blue, Colors.green, Colors.orange, Colors.purple];
-  final List<String> availableSizes = ["S", "M", "L", "XL", "XXL"];
+  void switchPage(int index){
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
+  void setColorIndex(int index){
+    setState(() {
+      selectedColorIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,213 +50,109 @@ class _AppItemsDetailsState extends State<AppItemsDetails> {
           },
         ),
         actions: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              const Icon(
-                Icons.shopping_bag_rounded,
-                size: 28,
-                color: Colors.white,
-              ),
-              Positioned(
-                right: -3,
-                top: -5,
-                child: Container(
-                  padding: const EdgeInsets.all(4),
-                  decoration: const BoxDecoration(
-                    color: Colors.red,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "3",
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ),
+           Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                const Icon(
+                  Icons.shopping_bag_rounded,
+                  size: 28,
+                  color: Colors.white,
                 ),
-              )
-            ],
-          ),
-          const SizedBox(width: 20),
-        ],
-      ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        children: [
-          // Product Image Slider
-          Container(
-            color: Colors.black,
-            height: 308,
-            child: PageView.builder(
-              onPageChanged: (value) {
-                setState(() {
-                  currentIndex = value;
-                });
-              },
-              itemCount: 3,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Image.asset(
-                      ImageConstants.smartwatchImage, // Ensure this exists
-                      height: 270,
-                      width: 300,
-                      fit: BoxFit.cover,
+                Positioned(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
                     ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        3,
-                            (index) => AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: const EdgeInsets.only(right: 4),
-                          width: 7,
-                          height: 7,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: index == currentIndex
-                                ? Colors.pink
-                                : Colors.grey.shade400,
-                          ),
-                        ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(3.0),
+                      child: Text(
+                        "3",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),
-                  ],
-                );
-              },
+                  ),
+                )
+              ],
             ),
           ),
-
-          const SizedBox(height: 19),
-
-          // Product Details
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("SmartWatch", style: TextStyle(color: Colors.white)),
-                  Text("Apple", style: TextStyle(color: Colors.white)),
-                  Text("N 1,200,000", style: TextStyle(color: Colors.white)),
-                ],
-              ),
-              Icon(Icons.favorite, color: Colors.white),
-            ],
-          ),
-
-          const SizedBox(height: 10),
-
-          // Product Description
-          const Text(
-            "Hello my friend. This is a wristwatch A1 Bluetooth Smart Watch with SIM and Camera.",
-            style: TextStyle(color: Colors.white),
-          ),
-
-          const SizedBox(height: 20),
-
-          // Colors Selection
-          const Text("Select Color", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 10),
-          Row(
-            children: List.generate(
-              availableColors.length,
-                  (index) => GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedColorIndex = index;
-                  });
-                },
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  padding: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: selectedColorIndex == index ? Colors.pink : Colors.transparent,
-                      width: 2,
-                    ),
-                  ),
-                  child: CircleAvatar(
-                    backgroundColor: availableColors[index],
-                    radius: 15,
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          const SizedBox(height: 20),
-
-          // Sizes Selection
-          const Text("Select Size", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 10),
-          Row(
-            children: List.generate(
-              availableSizes.length,
-                  (index) => GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedSizeIndex = index;
-                  });
-                },
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 14),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: selectedSizeIndex == index ? Colors.pink : Colors.grey.shade800,
-                    border: Border.all(color: Colors.white),
-                  ),
-                  child: Text(
-                    availableSizes[index],
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          const SizedBox(height: 30),
         ],
       ),
-
-      // Fixed Overflow in Floating Action Button
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Row(
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: ElevatedButton.icon(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  padding: const EdgeInsets.symmetric(vertical: 13),
-                  side: const BorderSide(color: Colors.white),
+                  ProductImages(switchPage: switchPage, img: widget.product.img),
+                  BuildCircle(currentIndex: currentIndex,),
+                  const SizedBox(height: 30,),
+                  Row(
+                    children: [
+                      Text(widget.product.brand, style: const TextStyle(color: Colors.white),),
+                      const SizedBox(width: 3, ),
+                      const Icon(Icons.star, color: Colors.amber, size: 15,),
+                      const SizedBox(width: 3,),
+                      const Text("4.9", style: TextStyle(color: Colors.white),),
+                      const SizedBox(width: 3,),
+                      const Text("(250)", style: TextStyle(color: Colors.white),),
+                      const Expanded(child: SizedBox()),
+                      const Icon(Icons.favorite_border, color: Colors.pink,),
+                    ],
+                  ),
+            const SizedBox(height: 20,),
+            Text(widget.product.description, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
+            const SizedBox(height: 20,),
+            const Text("Colors", style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),),
+            const SizedBox(height: 10,),
+            ProductColors(availableColors: availableColors, setColorIndex: setColorIndex, selectedColorIndex: selectedColorIndex),
+            const SizedBox(height: 50,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  width: 150,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white),
+                  ),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.shopping_cart, color: Colors.white,),
+                      const SizedBox(width: 3,),
+                      Text("ADD TO CART",style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),)
+                    ],
+                  ),
                 ),
-                label: const Text("BUY NOW", style: TextStyle(color: Colors.white)),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: ElevatedButton.icon(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink,
-                  padding: const EdgeInsets.symmetric(vertical: 13),
-                  side: const BorderSide(color: Colors.black),
+                Container(
+                  alignment: Alignment.center,
+                  width: 150,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.pink,
+                    border: Border.all(color: Colors.pink),
+                  ),
+                  child: const Text("BUY NOW", style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),),
                 ),
-                icon: const Icon(Icons.shopping_bag_rounded, color: Colors.white),
-                label: const Text("ADD TO CART", style: TextStyle(color: Colors.white)),
-              ),
-            ),
+              ],
+            )
           ],
         ),
-      ),
+      )
+
+
+
     );
   }
 }
+
+
+
+
+
+
+

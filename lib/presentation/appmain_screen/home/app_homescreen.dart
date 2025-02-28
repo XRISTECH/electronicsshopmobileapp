@@ -14,7 +14,6 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
 
 
   void signOut() {
-    print("Signing out...");
     ref.read(authRepositoryProvider).signOut(ref);
   }
 
@@ -169,7 +168,13 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
           sliver: SliverGrid(
           delegate: SliverChildBuilderDelegate(
               (context, index) {
-            return ProductsGrid(index: index);
+             ElectronicProduct product = smartphones[index];
+            return GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AppItemsDetails(product: product,)));
+              },
+                child: ProductsGrid(product: product,)
+            );
           },
           childCount: smartphones.length,
           ),
