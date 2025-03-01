@@ -36,7 +36,7 @@ class _AppItemsDetailsState extends State<AppItemsDetails> {
         centerTitle: true,
         backgroundColor: Colors.black,
         title: const Text(
-          "Details Product",
+          "Product Details",
           style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
@@ -44,6 +44,7 @@ class _AppItemsDetailsState extends State<AppItemsDetails> {
             Icons.arrow_back_ios,
             color: Colors.white,
             size: 28,
+
           ),
           onPressed: () {
             Navigator.pop(context);
