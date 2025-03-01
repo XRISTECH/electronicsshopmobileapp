@@ -108,8 +108,8 @@ class CategoryList extends StatelessWidget {
 }
 
 class ProductsGrid extends StatelessWidget {
-  final int index;
-  const ProductsGrid({super.key, required this.index});
+  final ElectronicProduct product;
+  const ProductsGrid({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +129,7 @@ class ProductsGrid extends StatelessWidget {
             Stack(
               alignment: Alignment.topRight,
                children: [
-                Image.asset(smartphones[index].img),
+                Image.asset(product.img),
                 Positioned(
                     child: Container(
                         decoration: BoxDecoration(
@@ -146,7 +146,7 @@ class ProductsGrid extends StatelessWidget {
             const SizedBox(height: 3,),
             Row(
               children: [
-                Text(smartphones[index].brand, style: TextStyle(color: Colors.white),),
+                Text(product.brand, style: const TextStyle(color: Colors.white),),
                 const SizedBox(width: 3, ),
                 const Icon(Icons.star, color: Colors.amber, size: 15,),
                 const SizedBox(width: 3,),
@@ -156,12 +156,13 @@ class ProductsGrid extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 3,),
-            Text(smartphones[index].description, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
+            Text(product.description, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
             const SizedBox(height: 3,),
-            Text("N${smartphones[index].price}", style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
+            Text("N${product.price}", style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
           ],
         ),
       ),
     );
   }
 }
+

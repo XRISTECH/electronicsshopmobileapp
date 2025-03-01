@@ -23,6 +23,7 @@ export 'package:electronicsshop_app/presentation/appmain_screen/search/search.da
 export 'package:electronicsshop_app/data/repository/auth_repository.dart';
 export 'package:electronicsshop_app/presentation/wrapper/wrapper.dart';
 export 'package:electronicsshop_app/presentation/loading/loading.dart';
+export '../presentation/appmain_screen/products_details/products_details.dart';
 //packages
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:electronicsshop_app/data/repository/local_storage_repository.dart';
