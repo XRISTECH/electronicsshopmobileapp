@@ -1,5 +1,5 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
-import 'package:electronicsshop_app/presentation/appmain_screen/products_details/shared/product_details_shared.dart';
+
 
 class AppItemsDetails extends StatefulWidget {
   final ElectronicProduct product;

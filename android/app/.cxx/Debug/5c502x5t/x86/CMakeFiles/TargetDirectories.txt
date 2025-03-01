@@ -1,0 +1,2 @@
+/Users/machintosh/Downloads/FLUTTER PROJECT/electronicsshop_app/android/app/.cxx/Debug/5c502x5t/x86/CMakeFiles/edit_cache.dir
+/Users/machintosh/Downloads/FLUTTER PROJECT/electronicsshop_app/android/app/.cxx/Debug/5c502x5t/x86/CMakeFiles/rebuild_cache.dir
