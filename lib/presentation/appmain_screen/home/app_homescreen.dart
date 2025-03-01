@@ -23,46 +23,7 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
     _scrollController.addListener(_scrollListener);
   }
 
-ElectronicProduct getProduct(int index){
-  switch (productCategory.name) {
-    case "SmartPhones":
-      return smartphones[index];
-    case "Fridge":
-      return fridges[index];
-    case "AC":
-      return airConditioners[index];
-    case "SmartWatch":
-      return smartwatches[index];
-    case "HeadPhone":
-      return headphones[index];
-    case "Laptop":
-      return laptops[index];
-    case "Television":
-    default:
-      return televisions[index];
-  }
 
-}
-
-int getLength(){
-  switch (productCategory.name) {
-    case "SmartPhones":
-      return smartphones.length;
-    case "Fridge":
-      return fridges.length;
-    case "AC":
-      return airConditioners.length;
-    case "SmartWatch":
-      return smartwatches.length;
-    case "HeadPhone":
-      return headphones.length;
-    case "Laptop":
-      return laptops.length;
-    case "Television":
-    default:
-      return televisions.length;
-  }
-}
 
 
 
@@ -240,7 +201,46 @@ int getLength(){
           ),
     );
   }
+  ElectronicProduct getProduct(int index){
+    switch (productCategory.name) {
+      case "SmartPhones":
+        return smartphones[index];
+      case "Fridge":
+        return fridges[index];
+      case "AC":
+        return airConditioners[index];
+      case "SmartWatch":
+        return smartwatches[index];
+      case "HeadPhone":
+        return headphones[index];
+      case "Laptop":
+        return laptops[index];
+      case "Television":
+      default:
+        return televisions[index];
+    }
 
+  }
+
+  int getLength(){
+    switch (productCategory.name) {
+      case "SmartPhones":
+        return smartphones.length;
+      case "Fridge":
+        return fridges.length;
+      case "AC":
+        return airConditioners.length;
+      case "SmartWatch":
+        return smartwatches.length;
+      case "HeadPhone":
+        return headphones.length;
+      case "Laptop":
+        return laptops.length;
+      case "Television":
+      default:
+        return televisions.length;
+    }
+  }
   @override
   void dispose() {
     _scrollController.removeListener(_scrollListener);
