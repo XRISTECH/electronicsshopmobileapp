@@ -400,7 +400,7 @@ final List<ElectronicProduct> smartwatches = [
           "This is a U8 Mobile Phone Watch With SIM And Memory Card Port Smart Watch",
       price: "27000",
       color: "black",
-      img: "assets/images/smartwatch/watchtwo-removebg-preview.png",
+      img: "assets/images/smartwatch/watchtwoi-removebg-preview.png",
       likes: 5),
   ElectronicProduct(
       name: "Z93 Pro Amoled Round Smart Watch",
@@ -602,7 +602,7 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "100000",
       color: "Black",
-      img: "assets/images/headphones/h3-removebg-preview.png",
+      img: "assets/images/laptops/laptop3-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
       name: "laptop",
@@ -611,7 +611,7 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "100000",
       color: "Grey",
-      img: "assets/images/headphones/h4-removebg-preview.png",
+      img: "assets/images/laptops/laptop4-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
       name: "laptop",
@@ -620,7 +620,7 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "300000",
       color: "Gold",
-      img: "assets/images/headphones/h5-removebg-preview.png",
+      img: "assets/images/laptops/laptop5-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
       name: "laptop",
@@ -629,7 +629,7 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "100000",
       color: "Black",
-      img: "assets/images/headphones/h6-removebg-preview.png",
+      img: "assets/images/laptops/laptop6-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
       name: "laptop",
@@ -638,7 +638,7 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "100000",
       color: "Black",
-      img: "assets/images/headphones/h7-removebg-preview.png",
+      img: "assets/images/laptops/laptop7-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
       name: "laptop",
@@ -647,7 +647,7 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "100000",
       color: "White",
-      img: "assets/images/headphones/h8-removebg-preview.png",
+      img: "assets/images/laptops/laptop8.png",
       likes: 3),
   ElectronicProduct(
       name: "laptop",
@@ -656,7 +656,7 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "300000",
       color: "Grey",
-      img: "assets/images/headphones/h9.png",
+      img: "assets/images/laptops/laptop9-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
       name: "laptop",
@@ -665,7 +665,7 @@ final List<ElectronicProduct> laptops = [
       description: "This is a laptop",
       price: "100000",
       color: "White",
-      img: "assets/images/headphones/h10-removebg-preview.png",
+      img: "assets/images/laptops/laptop10-removebg-preview.png",
       likes: 3),
 ];
 

@@ -2,7 +2,8 @@ import 'package:electronicsshop_app/cores/app_exports.dart';
 
 
 class CategoryAppBarList extends StatelessWidget {
-  const CategoryAppBarList({super.key});
+  final Function(Category) onTap;
+  const CategoryAppBarList({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +14,17 @@ class CategoryAppBarList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: categoriesList.length,
         itemBuilder: (context, index) {
-          bool isPhone = categoriesList[index].name == "SmartPhones";
-          bool isFridge = categoriesList[index].name == "Fridge";
-          bool isAc = categoriesList[index].name == "AC";
-          bool isWatch = categoriesList[index].name == "SmartWatch";
-          bool isHeadphone = categoriesList[index].name == "HeadPhone";
-          bool isLaptop = categoriesList[index].name == "Laptop";
-          bool isTv = categoriesList[index].name == "Television";
-          return InkWell(
+          Category category = categoriesList[index];
+          bool isPhone = category.name == "SmartPhones";
+          bool isFridge = category.name == "Fridge";
+          bool isAc = category.name == "AC";
+          bool isWatch = category.name == "SmartWatch";
+          bool isHeadphone = category.name == "HeadPhone";
+          bool isLaptop = category.name == "Laptop";
+          bool isTv = category.name == "Television";
+          return GestureDetector(
             onTap: (){
-
+              onTap(category);
             },
             child: Padding(
               padding: const EdgeInsets.only(left: 15.0),
@@ -48,7 +50,8 @@ class CategoryAppBarList extends StatelessWidget {
 
 
 class CategoryList extends StatelessWidget {
-  const CategoryList({super.key});
+  final Function(Category) onTap;
+  const CategoryList({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -59,15 +62,18 @@ class CategoryList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: categoriesList.length,
         itemBuilder: (context, index) {
-          bool isPhone = categoriesList[index].name == "SmartPhones";
-          bool isFridge = categoriesList[index].name == "Fridge";
-          bool isAc = categoriesList[index].name == "AC";
-          bool isWatch = categoriesList[index].name == "SmartWatch";
-          bool isHeadphone = categoriesList[index].name == "HeadPhone";
-          bool isLaptop = categoriesList[index].name == "Laptop";
-          bool isTv = categoriesList[index].name == "Television";
-          return InkWell(
-            onTap: (){},
+          Category category = categoriesList[index];
+          bool isPhone = category.name == "SmartPhones";
+          bool isFridge = category.name == "Fridge";
+          bool isAc = category.name == "AC";
+          bool isWatch = category.name == "SmartWatch";
+          bool isHeadphone = category.name == "HeadPhone";
+          bool isLaptop = category.name == "Laptop";
+          bool isTv = category.name == "Television";
+          return GestureDetector(
+            onTap: (){
+             onTap(category);
+            },
             child: Container(
               margin: const EdgeInsets.only(right: 10),
               alignment: Alignment.center,
@@ -113,6 +119,8 @@ class ProductsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String abbreviatedProductBrand =
+    product.brand.length > 7 ? '${product.brand.substring(0, 7)}...' : product.brand;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
@@ -146,7 +154,7 @@ class ProductsGrid extends StatelessWidget {
             const SizedBox(height: 3,),
             Row(
               children: [
-                Text(product.brand, style: const TextStyle(color: Colors.white),),
+                Text(abbreviatedProductBrand, style: const TextStyle(color: Colors.white),),
                 const SizedBox(width: 3, ),
                 const Icon(Icons.star, color: Colors.amber, size: 15,),
                 const SizedBox(width: 3,),

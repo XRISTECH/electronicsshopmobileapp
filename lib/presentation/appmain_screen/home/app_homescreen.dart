@@ -11,7 +11,7 @@ class AppHomeScreen extends ConsumerStatefulWidget {
 class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
   final ScrollController _scrollController = ScrollController();
   bool _isScrollingDown = false;
-
+  Category productCategory = categoriesList[0];
 
   void signOut() {
     ref.read(authRepositoryProvider).signOut(ref);
@@ -22,6 +22,47 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
     super.initState();
     _scrollController.addListener(_scrollListener);
   }
+
+ElectronicProduct getProduct(int index){
+  switch (productCategory.name) {
+    case "SmartPhones":
+      return smartphones[index];
+    case "Fridge":
+      return fridges[index];
+    case "AC":
+      return airConditioners[index];
+    case "SmartWatch":
+      return smartwatches[index];
+    case "HeadPhone":
+      return headphones[index];
+    case "Laptop":
+      return laptops[index];
+    case "Television":
+    default:
+      return televisions[index];
+  }
+
+}
+
+int getLength(){
+  switch (productCategory.name) {
+    case "SmartPhones":
+      return smartphones.length;
+    case "Fridge":
+      return fridges.length;
+    case "AC":
+      return airConditioners.length;
+    case "SmartWatch":
+      return smartwatches.length;
+    case "HeadPhone":
+      return headphones.length;
+    case "Laptop":
+      return laptops.length;
+    case "Television":
+    default:
+      return televisions.length;
+  }
+}
 
 
 
@@ -45,6 +86,7 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
   @override
   Widget build(BuildContext context) {
     final user = ref.read(userProvider);
+
     return Scaffold(
       backgroundColor: Colors.black,
           body: CustomScrollView(
@@ -56,7 +98,11 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
           floating: true,
           automaticallyImplyLeading: false,
           title: Builder(builder: (context){
-          return  const CategoryAppBarList();
+          return  CategoryAppBarList(onTap: (category) {
+            setState(() {
+              productCategory = category;
+            });
+          },);
           })
           ) : SliverPadding(
           padding: const EdgeInsets.only(top: 5.0),
@@ -135,7 +181,11 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
             ),
             const SizedBox(height: 20),
             // Category List
-            const CategoryList(),
+            CategoryList(onTap: (category) {
+              setState(() {
+                productCategory = category;
+              });
+            },),
             const SizedBox(height: 10),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -168,7 +218,7 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
           sliver: SliverGrid(
           delegate: SliverChildBuilderDelegate(
               (context, index) {
-             ElectronicProduct product = smartphones[index];
+             ElectronicProduct product = getProduct(index);
             return GestureDetector(
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => AppItemsDetails(product: product,)));
@@ -176,7 +226,7 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
                 child: ProductsGrid(product: product,)
             );
           },
-          childCount: smartphones.length,
+          childCount: getLength(),
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
