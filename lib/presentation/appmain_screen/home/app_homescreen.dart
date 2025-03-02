@@ -23,10 +23,6 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
     _scrollController.addListener(_scrollListener);
   }
 
-
-
-
-
   void _scrollListener() {
     if (_scrollController.offset >= 400.0) {
       if (!_isScrollingDown) {
@@ -90,30 +86,7 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
               child: const Icon(Icons.bolt, color: Colors.pink, size: 30)),
           Text("Welcome ${user!.username} !", style: const TextStyle(color: Colors.white, fontSize: 16),),
           const Expanded(child: SizedBox()),
-          Stack(
-          clipBehavior: Clip.none,
-          children: [
-          const Icon(Icons.shopping_bag_rounded, color: Colors.white, size: 30),
-          Positioned(
-          right: -3,
-          top: -5,
-          child: Container(
-          padding: const EdgeInsets.all(4),
-          decoration: const BoxDecoration(
-          color: Colors.red,
-          shape: BoxShape.circle,
-          ),
-          child: const Text(
-          "3",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-          ),
-          ),
-          ),
-          ],
-          )
+          const CartIcon()
           ],
           ),
           ),

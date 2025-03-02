@@ -23,6 +23,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userAsync = ref.watch(userDataProvider);
+    ref.watch(cartNotifierProvider);
     return userAsync.when(
       data: (errorModel) {
         final user = errorModel.data;

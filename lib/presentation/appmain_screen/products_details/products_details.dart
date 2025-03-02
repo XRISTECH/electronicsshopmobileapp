@@ -1,15 +1,15 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
 
-class AppItemsDetails extends StatefulWidget {
+class AppItemsDetails extends ConsumerStatefulWidget {
   final ElectronicProduct product;
   const AppItemsDetails({super.key, required this.product});
 
   @override
-  State<AppItemsDetails> createState() => _AppItemsDetailsState();
+  ConsumerState<AppItemsDetails> createState() => _AppItemsDetailsState();
 }
 
-class _AppItemsDetailsState extends State<AppItemsDetails> {
+class _AppItemsDetailsState extends ConsumerState<AppItemsDetails> {
   int currentIndex = 0;
   int selectedColorIndex = 0;
   int selectedSizeIndex = 0;
@@ -28,8 +28,11 @@ class _AppItemsDetailsState extends State<AppItemsDetails> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
+    final cartProducts = ref.watch(cartNotifierProvider);
+    bool isProductInCart = cartProducts.contains(widget.product);
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -50,36 +53,11 @@ class _AppItemsDetailsState extends State<AppItemsDetails> {
             Navigator.pop(context);
           },
         ),
-        actions: [
-           Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: Stack(
-              alignment: Alignment.topRight,
-              children: [
-                const Icon(
-                  Icons.shopping_bag_rounded,
-                  size: 28,
-                  color: Colors.white,
-                ),
-                Positioned(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.red,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(3.0),
-                      child: Text(
-                        "3",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: CartIcon(),
+          )
         ],
       ),
       body: Padding(
@@ -113,20 +91,23 @@ class _AppItemsDetailsState extends State<AppItemsDetails> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  alignment: Alignment.center,
-                  width: 150,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.shopping_cart, color: Colors.white,),
-                      const SizedBox(width: 3,),
-                      Text("ADD TO CART",style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),)
-                    ],
+                GestureDetector(
+                  onTap: isProductInCart ? removeFromCart : addToCart,
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 150,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.shopping_cart, color: Colors.white,),
+                        const SizedBox(width: 3,),
+                        Text(isProductInCart ? "REMOVE" : "ADD TO CART",style:  const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),)
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -149,6 +130,14 @@ class _AppItemsDetailsState extends State<AppItemsDetails> {
 
     );
   }
+  void addToCart(){
+    ref.read(cartNotifierProvider.notifier).addProduct(widget.product);
+  }
+  void removeFromCart(){
+    ref.read(cartNotifierProvider.notifier).removeProduct(widget.product);
+  }
+
+
 }
 
 
