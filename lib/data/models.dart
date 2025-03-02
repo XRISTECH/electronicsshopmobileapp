@@ -1,4 +1,5 @@
 class ElectronicProduct {
+  final int id;
   final String name;
   final String category;
   final String brand;
@@ -9,6 +10,7 @@ class ElectronicProduct {
   final int likes;
 
   ElectronicProduct({
+    required this.id,
     required this.name,
     required this.category,
     required this.brand,
@@ -19,9 +21,39 @@ class ElectronicProduct {
     required this.likes,
   });
 
+  // Convert ElectronicProduct to a Map (JSON)
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'category': category,
+      'brand': brand,
+      'description': description,
+      'price': price,
+      'color': color,
+      'img': img,
+      'likes': likes,
+    };
+  }
+
+  // Convert JSON Map to ElectronicProduct instance
+  factory ElectronicProduct.fromJson(Map<String, dynamic> json) {
+    return ElectronicProduct(
+      id: json['id'],
+      name: json['name'],
+      category: json['category'],
+      brand: json['brand'],
+      description: json['description'],
+      price: json['price'],
+      color: json['color'],
+      img: json['img'],
+      likes: json['likes'],
+    );
+  }
 
   factory ElectronicProduct.empty(){
     return ElectronicProduct(
+        id: 0,
         name: "",
         category: "",
         brand: "",
@@ -83,97 +115,107 @@ class ErrorModel {
 
 final List<ElectronicProduct> smartphones = [
   ElectronicProduct(
+      id: 1,
       name: "Infinix Hot 50i",
       category: "SmartPhones",
       brand: "Infinix",
       description:
-          "This is an Infinix Hot 50i 6.78 4GB RAM/128GB ROM Android 13- Black",
+      "This is an Infinix Hot 50i 6.78 4GB RAM/128GB ROM Android 13- Black",
       price: "138730",
       color: "black",
       img: "assets/images/smartphones/infinixhot50-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 2,
       name: "Infinix Hot 50 Pro",
       category: "SmartPhones",
       brand: "Infinix",
       description:
-          "This is an Infinix Hot 50 Pro+ 6.78 8GB RAM/128GB ROM Android 14- Titanium",
+      "This is an Infinix Hot 50 Pro+ 6.78 8GB RAM/128GB ROM Android 14- Titanium",
       price: "284431",
       color: "Silver",
       img:
-          "assets/images/smartphones/Buy Vivo Y51 (4G 4GB 128GB Jazzy Blue) With Official Warranty at Best Price in Pakistan.png",
+      "assets/images/smartphones/Buy Vivo Y51 (4G 4GB 128GB Jazzy Blue) With Official Warranty at Best Price in Pakistan.png",
       likes: 2),
   ElectronicProduct(
+      id: 3,
       name: "iPhone 11 PRO MAX",
       category: "SmartPhones",
       brand: "Apple",
       description:
-          "This is an Apple iPhone 11 Pro Max-64GB/256GB Network Unlocked -Very Good Condition",
+      "This is an Apple iPhone 11 Pro Max-64GB/256GB Network Unlocked -Very Good Condition",
       price: "384431",
       color: "Gold",
       img: "assets/images/smartphones/iphone11-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
+      id: 4,
       name: "iPhone 13 PRO MAX",
       category: "SmartPhones",
       brand: "Apple",
       description:
-          "This is an Apple iPhone 13 Pro Max-64GB/256GB Network Unlocked -Very Good Condition",
+      "This is an Apple iPhone 13 Pro Max-64GB/256GB Network Unlocked -Very Good Condition",
       price: "584431",
       color: "black",
       img: "assets/images/smartphones/iphone13-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
+      id: 5,
       name: "itelP55T 6.56″ HD",
       category: "SmartPhones",
       brand: "Itel",
       description:
-          "This is an itel P55T 6.56″ HD +Hole 4GB RAM/128GB ROM Android 14 - Gold",
+      "This is an itel P55T 6.56″ HD +Hole 4GB RAM/128GB ROM Android 14 - Gold",
       price: "115000",
       color: "Gold",
       img: "assets/images/smartphones/itelP55t-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 6,
       name: "itel S23",
       category: "SmartPhones",
       brand: "Itel",
       description:
-          "This is an itel S23 + 6.78 FHD 8GB RAM/256GB ROM Android 12 - Cyan",
+      "This is an itel S23 + 6.78 FHD 8GB RAM/256GB ROM Android 12 - Cyan",
       price: "198000",
       color: "Cyan",
       img: "assets/images/smartphones/itelS23-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 7,
       name: "Samsung Galaxy AO6",
       category: "SmartPhones",
       brand: "Samsung",
       description:
-          "This is a Samsung Galaxy A06 6.7 4GB RAM/64GB ROM Android 14",
+      "This is a Samsung Galaxy A06 6.7 4GB RAM/64GB ROM Android 14",
       price: "144327",
       color: "black",
       img: "assets/images/smartphones/samsunggalaxya06-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 8,
       name: "Samsung Galaxy A16",
       category: "SmartPhones",
       brand: "Samsung",
       description:
-          "This is a Samsung Galaxy A16 6.7 HD 4GB RAM/128GB ROM Android 14 5000mah",
+      "This is a Samsung Galaxy A16 6.7 HD 4GB RAM/128GB ROM Android 14 5000mah",
       price: "224722",
       color: "Light Green",
       img: "assets/images/smartphones/samsunggalaxya16-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
+      id: 9,
       name: "Tecno POP 8",
       category: "SmartPhones",
       brand: "Tecno",
       description:
-          "This is a Tecno POP 8 (BG6) 6.6 HD+,2GB RAM + 64GB ROM 5000mAh, 8MP ",
+      "This is a Tecno POP 8 (BG6) 6.6 HD+,2GB RAM + 64GB ROM 5000mAh, 8MP ",
       price: "105576",
       color: "black",
       img: "assets/images/smartphones/technopop8-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 10,
       name: "Tecno POP 9",
       category: "SmartPhones",
       brand: "Tecno",
@@ -184,28 +226,32 @@ final List<ElectronicProduct> smartphones = [
       likes: 2),
 ];
 
+
 final List<ElectronicProduct> fridges = [
   ElectronicProduct(
+      id: 11,
       name: "Haier Thermocool Freezer",
       category: "Fridge",
       brand: "Haier Thermacool",
       description:
-          "This is a Haier Thermocool 146 Litres Chest Freezer (HTF-150) ",
+      "This is a Haier Thermocool 146 Litres Chest Freezer (HTF-150) ",
       price: "344785",
       color: "Silver",
       img: "assets/images/fridge/freezerone-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 12,
       name: "Haier Thermocool Freezer",
       category: "Fridge",
       brand: "Haier Thermacool",
       description:
-          "This is a Haier Thermocool 429 Litres Inverter Series Chest Freezer (HTF-150) ",
+      "This is a Haier Thermocool 429 Litres Inverter Series Chest Freezer (HTF-150) ",
       price: "1350500",
       color: "Silver",
       img: "assets/images/fridge/freezer-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 13,
       name: "Hisense Freezer",
       category: "Fridge",
       brand: "Hisense",
@@ -215,6 +261,7 @@ final List<ElectronicProduct> fridges = [
       img: "assets/images/fridge/thermacoolfridge-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 14,
       name: "Hisense Freezer",
       category: "Fridge",
       brand: "Hisense",
@@ -224,6 +271,7 @@ final List<ElectronicProduct> fridges = [
       img: "assets/images/fridge/fridgethree-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 15,
       name: "Scanfrost Freezer",
       category: "Fridge",
       brand: "Scanfrost",
@@ -233,6 +281,7 @@ final List<ElectronicProduct> fridges = [
       img: "assets/images/fridge/myfreezer-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 16,
       name: "Scanfrost Freezer",
       category: "Fridge",
       brand: "Scanfrost",
@@ -242,41 +291,45 @@ final List<ElectronicProduct> fridges = [
       img: "assets/images/fridge/freezer9-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
+      id: 17,
       name: "Nexus Freezer",
       category: "Fridge",
       brand: "Nexus",
       description:
-          "This is a Nexus 44 Liters Single Door No-Frost Refrigerator",
+      "This is a Nexus 44 Liters Single Door No-Frost Refrigerator",
       price: "239900",
       color: "black",
       img: "assets/images/fridge/fridgefour-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 18,
       name: "Nexus Freezer",
       category: "Fridge",
       brand: "Nexus",
       description:
-          "This is a Nexus 44 Liters Double Door No-Frost Refrigerator",
+      "This is a Nexus 44 Liters Double Door No-Frost Refrigerator",
       price: "400000",
       color: "white",
       img: "assets/images/fridge/fridgefive-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 19,
       name: "Polystar Freezer",
       category: "Fridge",
       brand: "Polystar",
       description:
-          "This is a Polystar 44 Liters Double Door No-Frost Refrigerator",
+      "This is a Polystar 44 Liters Double Door No-Frost Refrigerator",
       price: "450000",
       color: "white",
       img: "assets/images/fridge/freezerfour-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 20,
       name: "Polystar Freezer",
       category: "Fridge",
       brand: "Polystar",
       description:
-          "This is a Polystar 44 Liters Double Door No-Frost Refrigerator",
+      "This is a Polystar 44 Liters Double Door No-Frost Refrigerator",
       price: "400000",
       color: "white",
       img: "assets/images/fridge/fridgesix-removebg-preview.png",
@@ -285,6 +338,7 @@ final List<ElectronicProduct> fridges = [
 
 final List<ElectronicProduct> airConditioners = [
   ElectronicProduct(
+      id: 21,
       name: "Hisense Air Conditioner",
       category: "AC",
       brand: "Hisense",
@@ -295,6 +349,7 @@ final List<ElectronicProduct> airConditioners = [
       img: "assets/images/ac/airconditionone-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+    id: 22,
     name: "Hisense Air Conditioner",
     category: "AC",
     brand: "Hisense",
@@ -306,6 +361,7 @@ final List<ElectronicProduct> airConditioners = [
     likes: 5,
   ),
   ElectronicProduct(
+      id: 23,
       name: "Haier Thermocool Air Conditioner",
       category: "AC",
       brand: "Haier Thermocool",
@@ -316,6 +372,7 @@ final List<ElectronicProduct> airConditioners = [
       img: "assets/images/ac/airconditionthree-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 24,
       name: "Haier Thermocool Air Conditioner",
       category: "AC",
       brand: "Haier Thermocool",
@@ -326,6 +383,7 @@ final List<ElectronicProduct> airConditioners = [
       img: "assets/images/ac/airconditionfour-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 25,
       name: "Samsung Air Conditioner",
       category: "AC",
       brand: "Samsung",
@@ -335,6 +393,7 @@ final List<ElectronicProduct> airConditioners = [
       img: "assets/images/ac/airconditionfive-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 26,
       name: "Samsung Air Conditioner",
       category: "AC",
       brand: "Samsung",
@@ -344,6 +403,7 @@ final List<ElectronicProduct> airConditioners = [
       img: "assets/images/ac/airconditionsix-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 27,
       name: "Panasonic Air Conditioner",
       category: "AC",
       brand: "Panasonic",
@@ -353,6 +413,7 @@ final List<ElectronicProduct> airConditioners = [
       img: "assets/images/ac/airconditionseven-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 28,
       name: "Panasonic Air Conditioner",
       category: "AC",
       brand: "Panasonic",
@@ -362,6 +423,7 @@ final List<ElectronicProduct> airConditioners = [
       img: "assets/images/ac/airconditioneight-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 29,
       name: "LG Air Conditioner",
       category: "AC",
       brand: "LG",
@@ -371,6 +433,7 @@ final List<ElectronicProduct> airConditioners = [
       img: "assets/images/ac/airconditionnine-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 30,
       name: "LG Air Conditioner",
       category: "AC",
       brand: "LG",
@@ -383,6 +446,7 @@ final List<ElectronicProduct> airConditioners = [
 
 final List<ElectronicProduct> smartwatches = [
   ElectronicProduct(
+      id: 31,
       name: "Bluetooth SmartWatch",
       category: "SmartWatch",
       brand: "Apple",
@@ -393,6 +457,7 @@ final List<ElectronicProduct> smartwatches = [
       img: 'assets/images/smartwatch/watch-removebg-preview.png',
       likes: 2),
   ElectronicProduct(
+      id: 32,
       name: "U8 Mobile Phone Watch",
       category: "SmartWatch",
       brand: "Oraimo",
@@ -403,6 +468,7 @@ final List<ElectronicProduct> smartwatches = [
       img: "assets/images/smartwatch/watchtwoi-removebg-preview.png",
       likes: 5),
   ElectronicProduct(
+      id: 33,
       name: "Z93 Pro Amoled Round Smart Watch",
       category: "SmartWatch",
       brand: "Oraimo",
@@ -413,6 +479,7 @@ final List<ElectronicProduct> smartwatches = [
       img: "assets/images/smartwatch/watchthree_jpeg-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 34,
       name: "Series 8 Smartwatch ",
       category: "SmartWatch",
       brand: "Rolex",
@@ -423,6 +490,7 @@ final List<ElectronicProduct> smartwatches = [
       img: "assets/images/smartwatch/watchfour-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 35,
       name: "Oraimo Nova V 2.01 HD Video Watch",
       category: "SmartWatch",
       brand: "Oraimo",
@@ -432,6 +500,7 @@ final List<ElectronicProduct> smartwatches = [
       img: "assets/images/smartwatch/watchfive-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 36,
       name: " T91 SmartWatch ",
       category: "SmartWatch",
       brand: "Apple",
@@ -442,6 +511,7 @@ final List<ElectronicProduct> smartwatches = [
       img: "assets/images/smartwatch/watchsix-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 37,
       name: "Series 8 Smartwatch",
       category: "SmartWatch",
       brand: "Rolex",
@@ -452,6 +522,7 @@ final List<ElectronicProduct> smartwatches = [
       img: "assets/images/smartwatch/watchseven-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 38,
       name: "Huawei Watch Buds Smartwatch",
       category: "SmartWatch",
       brand: "Huawei",
@@ -462,6 +533,7 @@ final List<ElectronicProduct> smartwatches = [
       img: "assets/images/smartwatch/watcheight-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 39,
       name: "Oraimo Watch Nova AM 2.01",
       category: "SmartWatch",
       brand: "Oraimo",
@@ -472,6 +544,7 @@ final List<ElectronicProduct> smartwatches = [
       img: "assets/images/smartwatch/watchnine-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 40,
       name: "Oraimo BT Call, Health Monitor watch",
       category: "SmartWatch",
       brand: "Oraimo",
@@ -485,6 +558,7 @@ final List<ElectronicProduct> smartwatches = [
 
 final List<ElectronicProduct> headphones = [
   ElectronicProduct(
+      id: 41,
       name: "Headphone",
       category: "Headphone",
       brand: "Sennheiser",
@@ -494,6 +568,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h1.png",
       likes: 5),
   ElectronicProduct(
+      id: 42,
       name: "Headphone",
       category: "Headphone",
       brand: "XTrust",
@@ -503,6 +578,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h2.png",
       likes: 2),
   ElectronicProduct(
+      id: 43,
       name: "Headphone",
       category: "Headphone",
       brand: "Fiver",
@@ -512,6 +588,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h3-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 44,
       name: "Headphone",
       category: "Headphone",
       brand: "Beat By Dre",
@@ -521,6 +598,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h4-removebg-preview.png",
       likes: 5),
   ElectronicProduct(
+      id: 45,
       name: "Headphone",
       category: "Headphone",
       brand: "Beat By Dre",
@@ -530,6 +608,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h5-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
+      id: 46,
       name: "Headphone",
       category: "Headphone",
       brand: "Beat By Dre",
@@ -539,6 +618,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h6-removebg-preview.png",
       likes: 6),
   ElectronicProduct(
+      id: 47,
       name: "Headphone",
       category: "Headphone",
       brand: "Beat By Dre",
@@ -548,6 +628,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h7-removebg-preview.png",
       likes: 8),
   ElectronicProduct(
+      id: 48,
       name: "Headphone",
       category: "Headphone",
       brand: "Beat By Dre",
@@ -557,6 +638,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h8-removebg-preview.png",
       likes: 5),
   ElectronicProduct(
+      id: 49,
       name: "Headphone",
       category: "Headphone",
       brand: "Beat By Dre",
@@ -566,6 +648,7 @@ final List<ElectronicProduct> headphones = [
       img: "assets/images/headphones/h9.png",
       likes: 12),
   ElectronicProduct(
+      id: 50,
       name: "Headphone",
       category: "Headphone",
       brand: "Beat By Dre",
@@ -578,6 +661,7 @@ final List<ElectronicProduct> headphones = [
 
 final List<ElectronicProduct> laptops = [
   ElectronicProduct(
+      id: 51,
       name: "laptop",
       category: "Laptop",
       brand: "Hp",
@@ -587,6 +671,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop1-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 52,
       name: "laptop",
       category: "Laptop",
       brand: "Samsung",
@@ -596,6 +681,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop2-removebg-preview.png",
       likes: 1),
   ElectronicProduct(
+      id: 53,
       name: "laptop",
       category: "Laptop",
       brand: "Hp",
@@ -605,6 +691,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop3-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 54,
       name: "laptop",
       category: "Laptop",
       brand: "Hp",
@@ -614,6 +701,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop4-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 55,
       name: "laptop",
       category: "Laptop",
       brand: "Hp",
@@ -623,6 +711,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop5-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
+      id: 56,
       name: "laptop",
       category: "Laptop",
       brand: "Dell",
@@ -632,6 +721,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop6-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 57,
       name: "laptop",
       category: "Laptop",
       brand: "Acer",
@@ -641,6 +731,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop7-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 58,
       name: "laptop",
       category: "Laptop",
       brand: "Macbook",
@@ -650,6 +741,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop8.png",
       likes: 3),
   ElectronicProduct(
+      id: 59,
       name: "laptop",
       category: "Laptop",
       brand: "Macbook",
@@ -659,6 +751,7 @@ final List<ElectronicProduct> laptops = [
       img: "assets/images/laptops/laptop9-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 60,
       name: "laptop",
       category: "Laptop",
       brand: "Macbook",
@@ -671,6 +764,7 @@ final List<ElectronicProduct> laptops = [
 
 final List<ElectronicProduct> televisions = [
   ElectronicProduct(
+      id: 61,
       name: "Hisense 43''Smart TV",
       category: "Television",
       brand: "Hisense",
@@ -681,6 +775,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/hisensetv-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 62,
       name: "Polystar 43''Smart TV",
       category: "Television",
       brand: "Polystar",
@@ -691,6 +786,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/Polystar-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 63,
       name: "Samsung 43''Smart TV",
       category: "Television",
       brand: "Samsung",
@@ -701,6 +797,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/samsungtv-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 64,
       name: "Nexus 43''Smart TV",
       category: "Television",
       brand: "Nexus",
@@ -711,6 +808,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/Nexustv-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
+      id: 65,
       name: "Royal 43''Smart TV",
       category: "Television",
       brand: "Royal",
@@ -721,6 +819,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/royaltv-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 66,
       name: "Hisense 43''Smart TV",
       category: "Television",
       brand: "Hisense",
@@ -731,6 +830,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/Amanitv-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 67,
       name: "Polystar 43''Smart TV",
       category: "Television",
       brand: "Polystar",
@@ -741,6 +841,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/Hikerstv-removebg-preview.png",
       likes: 3),
   ElectronicProduct(
+      id: 68,
       name: "Samsung 43''Smart TV",
       category: "Television",
       brand: "Samsung",
@@ -751,6 +852,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/infinitytv-removebg-preview.png",
       likes: 2),
   ElectronicProduct(
+      id: 69,
       name: "Nexus 43''Smart TV",
       category: "Television",
       brand: "Nexus",
@@ -761,6 +863,7 @@ final List<ElectronicProduct> televisions = [
       img: "assets/images/televisions/sonixtv-removebg-preview.png",
       likes: 4),
   ElectronicProduct(
+      id: 70,
       name: "Royal 43''Smart TV",
       category: "Television",
       brand: "Royal",

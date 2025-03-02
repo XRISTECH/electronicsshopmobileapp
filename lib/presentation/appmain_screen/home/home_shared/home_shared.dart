@@ -1,6 +1,8 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
 
+
+
 class CategoryAppBarList extends StatelessWidget {
   final Function(Category) onTap;
   const CategoryAppBarList({super.key, required this.onTap});
@@ -173,4 +175,42 @@ class ProductsGrid extends StatelessWidget {
     );
   }
 }
+
+class CartIcon extends ConsumerWidget {
+  const CartIcon({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final numOfItemsInCart = ref.watch(cartNotifierProvider).length;
+    return InkWell(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return const CartScreen();
+        }));
+      },
+      child: Stack(
+        alignment: Alignment.topRight,
+        children: [
+          const Icon(Icons.shopping_bag_rounded, color: Colors.white, size: 30),
+          Positioned(
+            child: Container(
+              padding: const EdgeInsets.all(4),
+              decoration: const BoxDecoration(
+                color: Colors.red,
+                shape: BoxShape.circle,
+              ),
+              child: Text(
+                numOfItemsInCart.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 

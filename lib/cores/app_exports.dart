@@ -25,6 +25,8 @@ export 'package:electronicsshop_app/presentation/wrapper/wrapper.dart';
 export 'package:electronicsshop_app/presentation/loading/loading.dart';
 export '../presentation/appmain_screen/products_details/products_details.dart';
 export 'package:electronicsshop_app/presentation/appmain_screen/products_details/shared/product_details_shared.dart';
+export 'package:electronicsshop_app/providers/cart_provider.dart';
+export 'package:electronicsshop_app/presentation/appmain_screen/cart_screen.dart';
 //packages
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:electronicsshop_app/data/repository/local_storage_repository.dart';
