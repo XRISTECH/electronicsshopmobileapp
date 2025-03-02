@@ -816,3 +816,13 @@ final List<Category> categoriesList = [
     image: "assets/images/tv-removebg-preview.png",
   ),
 ];
+
+
+final List<String> filterCategory = [
+  "Filter",
+  "Ratings",
+  "Size",
+  "Color",
+  "Price",
+  "Brand",
+];
