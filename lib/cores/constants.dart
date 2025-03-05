@@ -9,7 +9,7 @@ var textInputDecoration = InputDecoration(
   enabledBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
     borderSide:
-    BorderSide(color: Colors.grey[400]!), // Set the default border color
+        BorderSide(color: Colors.grey[400]!), // Set the default border color
   ),
   focusedBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
