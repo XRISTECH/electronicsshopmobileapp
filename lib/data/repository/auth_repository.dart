@@ -106,7 +106,7 @@ class AuthRepository {
         }
       }
     } catch (e) {
-      error = ErrorModel(error: e.toString(), data: null);
+      error = ErrorModel(error: "Unstable connection please try again no vex 🙏", data: null);
     }
 
     return error;
