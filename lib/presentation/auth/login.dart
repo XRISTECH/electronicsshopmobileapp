@@ -12,6 +12,7 @@ class _ElectronicsShopLoginState extends ConsumerState<ElectronicsShopLogin> {
   final _formKey = GlobalKey<FormState>();
   bool _showPassword = true;
   bool _isLoading = false;
+  bool _gLoading = false;
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   @override
@@ -25,7 +26,7 @@ class _ElectronicsShopLoginState extends ConsumerState<ElectronicsShopLogin> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 100.0, bottom: 50),
+                  padding: const EdgeInsets.only(top: 50.0, bottom: 50),
                   child: Center(child: Image.asset(ImageConstants.camImg, width: 100, height: 100)),
                 ),
                 const Text("Electro-Store", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
@@ -103,7 +104,42 @@ class _ElectronicsShopLoginState extends ConsumerState<ElectronicsShopLogin> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 30,),
+                      const SizedBox(height: 10,),
+                      const Center(child: Text("Or", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
+                      const SizedBox(height: 10,),
+                      Center(
+                        child: SizedBox(
+                          width: 300,
+                          height: 50,
+                          child: ElevatedButton.icon(
+                              style: ElevatedButton.styleFrom(
+                               backgroundColor: Colors.grey[300]),
+                              onPressed: () async {
+                                bool isLoggedIn;
+                                setState(() {
+                                  _gLoading = true;
+                                });
+                               isLoggedIn = await googleSignIn(ref, context);
+                               if(!isLoggedIn){
+                                 setState(() {
+                                   _gLoading = false;
+                                 });
+                               }
+                              },
+                              icon: _gLoading ? null : Image.asset(
+                                ImageConstants.googleIcon,
+                                height: 40,
+                              ),
+                              label: _gLoading ? const CircularProgressIndicator(
+                                strokeWidth: 2.0,
+                                color: Colors.black,
+                              ) : const Text(
+                                'sign in with google',
+                                style: TextStyle(color: Colors.black),
+                              )),
+                        ),
+                      ),
+                      const SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [

@@ -24,6 +24,7 @@ class ImageConstants {
   static String smartwatchIcon = '$imagePath/smartwatch.png';
   static String headphoneIcon = '$imagePath/headphones.png';
   static String airConIcon = '$imagePath/aircon.png';
+  static String googleIcon = '$imagePath/google.png';
 
   // headphone images
   static String headphoneImg = '$headphonePath/h2.png';

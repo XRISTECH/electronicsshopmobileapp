@@ -27,45 +27,52 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("Notifications", style: TextStyle(fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.black,
+        title: const Text("Notifications", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
         centerTitle: true,
-
       ),
-      body: ListView.builder(
-        itemCount: notifications.length,
-        itemBuilder: (context, index) {
-          final notification = notifications[index];
-          return Dismissible(
-            key: Key(notification["title"]),
-            background: Container(
-              alignment: Alignment.centerRight,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              color: Colors.red,
-              child: const Icon(Icons.delete, color: Colors.white),
-            ),
-            onDismissed: (direction) {
-              setState(() {
-                notifications.removeAt(index);
-              });
-            },
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundColor: notification["isRead"] ? Colors.grey.shade300 : Colors.blue.shade100,
-                child: Icon(notification["isRead"] ? Icons.notifications_none : Icons.notifications_active, color: notification["isRead"] ? Colors.grey : Colors.blue),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.builder(
+          itemCount: notifications.length,
+          itemBuilder: (context, index) {
+            final notification = notifications[index];
+            return Dismissible(
+              key: Key(notification["title"]),
+              background: Container(
+                alignment: Alignment.centerRight,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                color: Colors.red,
+                child: const Icon(Icons.delete, color: Colors.white),
               ),
-              title: Text(notification["title"], style: TextStyle(fontWeight: notification["isRead"] ? FontWeight.normal : FontWeight.bold)),
-              subtitle: Text(notification["message"]),
-              trailing: Text(notification["time"], style: const TextStyle(color: Colors.grey, fontSize: 12)),
-              tileColor: notification["isRead"] ? Colors.white : Colors.blue.shade50,
-              onTap: () {
+              onDismissed: (direction) {
                 setState(() {
-                  notifications[index]["isRead"] = true;
+                  notifications.removeAt(index);
                 });
               },
-            ),
-          );
-        },
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: notification["isRead"] ? Colors.grey.shade300 : Colors.blue.shade100,
+                    child: Icon(notification["isRead"] ? Icons.notifications_none : Icons.notifications_active, color: notification["isRead"] ? Colors.grey : Colors.blue),
+                  ),
+                  title: Text(notification["title"], style: TextStyle(fontWeight: notification["isRead"] ? FontWeight.normal : FontWeight.bold)),
+                  subtitle: Text(notification["message"]),
+                  trailing: Text(notification["time"], style: const TextStyle(color: Colors.grey, fontSize: 12)),
+                  tileColor: notification["isRead"] ? Colors.grey[300] : Colors.blue.shade50,
+                  onTap: () {
+                    setState(() {
+                      notifications[index]["isRead"] = true;
+                    });
+                  },
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

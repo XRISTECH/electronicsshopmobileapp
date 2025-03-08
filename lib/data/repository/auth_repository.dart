@@ -4,7 +4,8 @@ import 'package:electronicsshop_app/cores/app_exports.dart';
 // Provider for managing authentication repository
 final authRepositoryProvider = Provider(
   (ref) => AuthRepository(
-      client: Client(), // HTTP client for making network requests
+      client: Client(),// HTTP client for making network requests
+      googleSignIn: GoogleSignIn(),
       localStorageRepository:
           LocalStorageRepository()), // Handles local storage
 );
@@ -14,13 +15,16 @@ final userProvider = StateProvider<UserModel?>((ref) => null);
 
 class AuthRepository {
   final Client _client;
+  final GoogleSignIn _googleSignIn;
   final LocalStorageRepository _localStorageRepository;
 
 // Constructor to initialize the authentication repository
   AuthRepository({
     required Client client,
+    required GoogleSignIn googleSignIn,
     required LocalStorageRepository localStorageRepository,
   })  : _client = client,
+        _googleSignIn = googleSignIn,
         _localStorageRepository = localStorageRepository;
 
   Future<ErrorModel> loginUser({
@@ -65,6 +69,49 @@ class AuthRepository {
     }
     return error;
   }
+
+  Future<ErrorModel> signInWithGoogle() async {
+    ErrorModel error =
+    ErrorModel(error: 'An unexpected error occured', data: null);
+
+    try {
+      final user = await _googleSignIn.signIn();
+
+      if (user != null) {
+        final userAcc = UserModel(
+            username: user.displayName ?? '',
+            email: user.email,
+            uid: '',
+        );
+    print(userAcc.toJson());
+        final res = await _client.post(Uri.parse('$host/googleSignIn'),
+            body: jsonEncode(userAcc.toJson()),
+            headers: {
+              'Content-Type': 'application/json',
+            });
+
+        if (res.statusCode == 201) {
+          final responseData = jsonDecode(res.body);
+          final user =
+          UserModel.fromJson(responseData['user']); // Deserialize user data
+          final token = responseData['accessToken'];
+          final refreshToken = responseData['refreshToken'];
+          // Store token locally for future authentication
+          _localStorageRepository.setToken(token);
+          _localStorageRepository.setRefreshToken(refreshToken);
+          error = ErrorModel(error: null, data: user);
+        } else {
+          // Handle non-200 status codes here, if needed
+          error = ErrorModel(error: 'Failed to create user', data: null);
+        }
+      }
+    } catch (e) {
+      error = ErrorModel(error: e.toString(), data: null);
+    }
+
+    return error;
+  }
+
 
 // Method to create a new user
   Future<ErrorModel> createUser({
@@ -183,4 +230,10 @@ class AuthRepository {
     // ignore: avoid_print
     print("UserProvider invalidated."); // Print Debugging message
   }
+
+
+
 }
+
+
+

@@ -13,10 +13,6 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
   bool _isScrollingDown = false;
   Category productCategory = categoriesList[0];
 
-  void signOut() {
-    ref.read(authRepositoryProvider).signOut(ref);
-  }
-
   @override
   void initState() {
     super.initState();
@@ -43,7 +39,6 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
   @override
   Widget build(BuildContext context) {
     final user = ref.read(userProvider);
-
     return Scaffold(
       backgroundColor: Colors.black,
           body: CustomScrollView(
@@ -79,19 +74,17 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
           child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-          GestureDetector(
-            onTap: (){
-              signOut();
-            },
-              child: const Icon(Icons.bolt, color: Colors.pink, size: 30)),
-          Text("Welcome ${user!.username} !", style: const TextStyle(color: Colors.white, fontSize: 16),),
+          const Icon(Icons.bolt, color: Colors.pink, size: 30),
+          Text("Hi ${user!.username} !", style: const TextStyle(color: Colors.white, fontSize: 16),),
           const Expanded(child: SizedBox()),
           const CartIcon()
           ],
           ),
           ),
             const SizedBox(height: 20),
-            const AppBanner(),
+             AppBanner(onTap: () {
+              widget.onSwitch(1);
+            },),
             const SizedBox(height: 20),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -2,7 +2,8 @@ import 'package:electronicsshop_app/cores/app_exports.dart';
 
 
 class AppBanner extends StatelessWidget {
-  const AppBanner({super.key});
+  final VoidCallback onTap;
+  const AppBanner({super.key, required this.onTap});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,15 +41,18 @@ class AppBanner extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 5,),
-            Container(
-              alignment: Alignment.center,
-              width: 100,
-              height: 30,
-              decoration: const BoxDecoration(
-                color: Colors.pink,
-              ),
-              child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
-              )
+            GestureDetector(
+              onTap: onTap,
+              child: Container(
+                alignment: Alignment.center,
+                width: 100,
+                height: 30,
+                decoration: const BoxDecoration(
+                  color: Colors.pink,
+                ),
+                child: const Text("SHOP NOW", style: TextStyle(color: Colors.white),),
+                ),
+            )
             ],
           ),
           const Expanded(child: SizedBox(),),

@@ -36,7 +36,7 @@ class _HomeControllerState extends State<HomeController> {
         children: [
           // List of screens that will be displayed based on navigation selection
           AppHomeScreen(onSwitch: _onSwitch),
-          Search(onSwitch: _onSwitch),
+          Explore(onSwitch: _onSwitch),
           NotificationPage(onSwitch: _onSwitch),
           Profile(onSwitch: _onSwitch)
         ],
@@ -62,7 +62,7 @@ class _HomeControllerState extends State<HomeController> {
                 Icons.search,
                 size: 30,
               ),
-              label: 'Search', // Label for Search
+              label: 'Explore', // Label for Search
             ),
             BottomNavigationBarItem(
               icon: Icon(

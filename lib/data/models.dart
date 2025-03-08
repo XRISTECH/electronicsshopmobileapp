@@ -924,7 +924,6 @@ final List<Category> categoriesList = [
 final List<String> filterCategory = [
   "Filter",
   "Ratings",
-  "Size",
   "Color",
   "Price",
   "Brand",
