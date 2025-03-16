@@ -1,5 +1,6 @@
 // Import necessary dependencies
 import 'package:electronicsshop_app/cores/app_exports.dart';
+import '../../cores/app_exports.dart' as http;
 
 // Provider for managing authentication repository
 final authRepositoryProvider = Provider(
@@ -81,6 +82,7 @@ class AuthRepository {
         final userAcc = UserModel(
             username: user.displayName ?? '',
             email: user.email,
+            profilePic: user.photoUrl ?? '',
             uid: '',
         );
     print(userAcc.toJson());
@@ -222,6 +224,90 @@ class AuthRepository {
     }
   }
 
+
+  Future<ErrorModel> updateProfilePic({required XFile imageFile}) async {
+    ErrorModel error = ErrorModel(error: 'An unexpected error occurred', data: null);
+
+    try {
+      String? token = await _localStorageRepository.getToken();
+      if (token == null || token.isEmpty) {
+        return ErrorModel(error: 'Unauthorized: No token found', data: null);
+      }
+
+      var request = http.MultipartRequest(
+        'PATCH',
+        Uri.parse('$host/users/upload'),
+      );
+
+      request.headers['Authorization'] = 'Bearer $token';
+
+      // Use `fromPath` to upload the file directly
+      request.files.add(
+        await http.MultipartFile.fromPath(
+          'profilePic',
+          imageFile.path,
+        ),
+      );
+
+      var streamedResponse = await request.send();
+      var response = await http.Response.fromStream(streamedResponse);
+
+      if (response.statusCode == 200) {
+        final responseData = jsonDecode(response.body);
+        error = ErrorModel(error: null, data: responseData['message']);
+      } else {
+        error = ErrorModel(error: 'Failed to update profile picture', data: null);
+      }
+    } catch (e) {
+      error = ErrorModel(error: e.toString(), data: null);
+    }
+
+    return error;
+  }
+
+  // Method to update user details
+  Future<ErrorModel> updateUser({
+    required String username,
+    required String email,
+  }) async {
+    ErrorModel error =
+    ErrorModel(error: 'An unexpected error occurred', data: null);
+
+    try {
+      // Retrieve the stored access token
+      String? token = await _localStorageRepository.getToken();
+
+      if (token == null) {
+        error = ErrorModel(error: 'No authentication token found', data: null);
+      }
+
+      final response = await _client.patch(
+        Uri.parse('$host/users/update'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode({
+          "username": username,
+          "email": email,
+        }),
+      );
+
+      // Handling different response statuses
+      if (response.statusCode == 200) {
+        final responseData = jsonDecode(response.body);
+        error = ErrorModel(error: null, data: responseData['message']);
+      } else {
+        error = ErrorModel(
+          error: jsonDecode(response.body)['message'] ?? 'Failed to update user',
+          data: null,
+        );
+      }
+    } catch (e) {
+      error = ErrorModel(error: e.toString(), data: null);
+    }
+    return error;
+  }
 // Method to sign out user and clear stored tokens
   void signOut(WidgetRef ref) async {
     _localStorageRepository.setToken(''); // Clear token

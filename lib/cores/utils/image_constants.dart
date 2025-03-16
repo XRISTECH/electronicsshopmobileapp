@@ -25,6 +25,7 @@ class ImageConstants {
   static String headphoneIcon = '$imagePath/headphones.png';
   static String airConIcon = '$imagePath/aircon.png';
   static String googleIcon = '$imagePath/google.png';
+  static String loader = '$imagePath/loading.gif';
 
   // headphone images
   static String headphoneImg = '$headphonePath/h2.png';

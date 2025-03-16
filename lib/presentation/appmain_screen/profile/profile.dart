@@ -10,6 +10,8 @@ class Profile extends ConsumerStatefulWidget {
 }
 
 class _ProfileState extends ConsumerState<Profile> {
+  XFile? _pickedImage;
+  bool loading = false;
 
   void signOut() {
     ref.read(authRepositoryProvider).signOut(ref);
@@ -17,7 +19,8 @@ class _ProfileState extends ConsumerState<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    final user = ref.read(userProvider);
+    final user = ref.watch(userProvider);
+   bool hasProfilePic = user?.profilePic != '';
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
@@ -31,22 +34,61 @@ class _ProfileState extends ConsumerState<Profile> {
     children: [
     const SizedBox(height: 20),
     // Profile Picture
-    Stack(
+    loading ? Image.asset(ImageConstants.loader, width: 100, height: 100) : Stack(
       alignment: Alignment.bottomRight,
     children: [
-    const Icon(Icons.person_pin, size: 100, color: Colors.white,),
-    Positioned(
-    child: Container(
-    decoration: const BoxDecoration(
-    shape: BoxShape.circle,
-    color: Colors.pink,
+    hasProfilePic
+    ? CircleAvatar(
+    backgroundColor: Colors.black,
+      radius: 50,
+      backgroundImage: NetworkImage(user!.profilePic),
+      child: ClipOval(
+        child: Image.network(
+          user!.profilePic,
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: double.infinity,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) {
+              return child;
+            }
+            return  Center(
+              child: Image.asset(ImageConstants.loader, width: 100, height: 100)
+            );
+          },
+          errorBuilder: (context, error, stackTrace) {
+            return const Icon(Icons.error, color: Colors.red, size: 50);
+          },
+        ),
+      ),
+    )
+          : const CircleAvatar(
+      backgroundColor: Colors.grey,
+      radius: 50,
+      child: Icon(Icons.person, size: 50, color: Colors.white),
     ),
-    child: IconButton(
-    icon: const Icon(Icons.edit, color: Colors.white, size: 18),
-    onPressed: () {
 
+        Positioned(
+    child: IconButton(
+      style: IconButton.styleFrom(backgroundColor: Colors.pink),
+    icon: const Icon(Icons.edit, color: Colors.white, size: 18),
+    onPressed: () async{
+      bool uploadSuccessful;
+      final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (pickedImage != null) {
+        setState(() {
+          loading = true;
+          _pickedImage = pickedImage;
+        }
+        );
+        uploadSuccessful = await uploadPic(ref, context, _pickedImage!);
+        if(uploadSuccessful || !uploadSuccessful){
+          setState(() {
+            loading = false;
+          });
+        }
+      }
     },
-    ),
     ),
     ),
     ],

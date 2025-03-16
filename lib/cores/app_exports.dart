@@ -35,5 +35,7 @@ export 'package:shared_preferences/shared_preferences.dart';
 export 'package:electronicsshop_app/data/repository/local_storage_repository.dart';
 export 'package:flutter_riverpod/flutter_riverpod.dart';
 export 'package:http/http.dart';
+export 'package:image_picker/image_picker.dart';
 export 'dart:convert';
+export 'dart:io';
 

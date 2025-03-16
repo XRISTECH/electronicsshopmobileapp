@@ -70,12 +70,14 @@ class ElectronicProduct {
 class UserModel {
   final String uid;
   final String username;
+  final String profilePic;
   final String email;
 
 
   UserModel(
       {required this.username,
         required this.email,
+        required this.profilePic,
         required this.uid
       });
 
@@ -83,11 +85,13 @@ class UserModel {
     return {
       'username': username,
       'email': email,
+      'profilePic': profilePic
     };
   }
 
   static UserModel fromJson(Map<String, dynamic> json) => UserModel(
       username: json['username'] ?? '',
+      profilePic: json['profilePic'] ?? '',
       email: json['email'] ?? '',
       uid: json['_id'] ?? ''
   );
@@ -96,11 +100,13 @@ class UserModel {
       {
         String? username,
         String? email,
+        String? profilePic,
         String? uid,
       }) {
     return UserModel(
         username: username ?? this.username,
         email: email ?? this.email,
+        profilePic: profilePic ?? this.profilePic,
         uid: uid ?? this.uid);
   }
 }

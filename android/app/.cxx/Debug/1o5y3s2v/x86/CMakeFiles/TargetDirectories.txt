@@ -1,0 +1,2 @@
+/Users/ibeawuchicornelius/electronicsshopmobileapp/android/app/.cxx/Debug/1o5y3s2v/x86/CMakeFiles/edit_cache.dir
+/Users/ibeawuchicornelius/electronicsshopmobileapp/android/app/.cxx/Debug/1o5y3s2v/x86/CMakeFiles/rebuild_cache.dir

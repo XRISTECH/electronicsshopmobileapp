@@ -139,7 +139,7 @@ class BuildSections extends StatelessWidget {
                     text,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 14,
+                      fontSize: 13,
                     ),
                   )
                 ],
