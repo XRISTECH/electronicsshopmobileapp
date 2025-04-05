@@ -41,26 +41,7 @@ class _ProfileState extends ConsumerState<Profile> {
     ? CircleAvatar(
     backgroundColor: Colors.black,
       radius: 50,
-      backgroundImage: NetworkImage(user!.profilePic),
-      child: ClipOval(
-        child: Image.network(
-          user!.profilePic,
-          fit: BoxFit.cover,
-          width: double.infinity,
-          height: double.infinity,
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress == null) {
-              return child;
-            }
-            return  Center(
-              child: Image.asset(ImageConstants.loader, width: 100, height: 100)
-            );
-          },
-          errorBuilder: (context, error, stackTrace) {
-            return const Icon(Icons.error, color: Colors.red, size: 50);
-          },
-        ),
-      ),
+      foregroundImage: NetworkImage(user!.profilePic),
     )
           : const CircleAvatar(
       backgroundColor: Colors.grey,

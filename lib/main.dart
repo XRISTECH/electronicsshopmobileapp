@@ -28,7 +28,6 @@ class MyApp extends ConsumerWidget {
     ref.listen(userDataProvider, (previous, next) {
       next.whenData((errorModel) {
         final user = errorModel.data;
-        print(user);
         if (user != null) {
 
           ref.read(userProvider.notifier).state = user;
