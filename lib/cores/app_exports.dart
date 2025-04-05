@@ -29,6 +29,8 @@ export 'package:electronicsshop_app/presentation/appmain_screen/products_details
 export 'package:electronicsshop_app/providers/cart_provider.dart';
 export 'package:electronicsshop_app/presentation/appmain_screen/cart_screen.dart';
 export 'package:electronicsshop_app/presentation/auth/shared/auth_shared.dart';
+export 'package:electronicsshop_app/data/controller/product_controller.dart';
+export 'package:electronicsshop_app/data/repository/product_repository.dart';
 //packages
 export 'package:google_sign_in/google_sign_in.dart';
 export 'package:shared_preferences/shared_preferences.dart';

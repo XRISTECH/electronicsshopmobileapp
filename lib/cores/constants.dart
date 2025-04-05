@@ -22,3 +22,32 @@ var inputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(8),
   borderSide: BorderSide(color: Colors.grey[400]!),
 );
+
+
+
+
+
+// class ProductListView extends ConsumerWidget {
+//   const ProductListView({super.key});
+//
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final productState = ref.watch(productControllerProvider);
+//
+//     if (productState.isLoading) {
+//       return const Center(child: CircularProgressIndicator());
+//     }
+//
+//     final products = productState.products;
+//
+//     return products.isEmpty
+//         ? const Center(child: Text('No products available'))
+//         : ListView.builder(
+//       itemCount: products.length,
+//       itemBuilder: (context, index) {
+//         final product = products[index];
+//         return ProductTile(product: product);
+//       },
+//     );
+//   }
+// }
