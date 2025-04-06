@@ -177,6 +177,7 @@ class _ElectronicsShopLoginState extends ConsumerState<ElectronicsShopLogin> {
       );
       if (errorModel.error == null && errorModel.data != null) {
         ref.read(userProvider.notifier).state = errorModel.data;
+        ref.read(productControllerProvider.notifier).fetchAllProducts();
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

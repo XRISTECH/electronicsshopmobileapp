@@ -37,6 +37,7 @@ class MyApp extends ConsumerWidget {
         }
       });
     });
+    ref.watch(productControllerProvider);
     ref.watch(cartNotifierProvider);
     return userAsync.when(
       data: (errorModel) {

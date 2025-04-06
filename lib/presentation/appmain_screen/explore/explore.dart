@@ -72,7 +72,7 @@ class _SearchState extends State<Explore> {
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => AppItemsDetails(product: product,)));
                     },
-                    child: ProductsGrid(product: product,)
+                    child: Container()
                 );
               }),
         )

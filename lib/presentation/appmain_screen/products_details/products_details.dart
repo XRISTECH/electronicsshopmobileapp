@@ -126,7 +126,7 @@ class _AppItemsDetailsState extends ConsumerState<AppItemsDetails> {
         ),
       )
 
-
+ 
 
     );
   }

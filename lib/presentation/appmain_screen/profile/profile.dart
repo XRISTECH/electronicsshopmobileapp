@@ -39,7 +39,7 @@ class _ProfileState extends ConsumerState<Profile> {
     children: [
     hasProfilePic
     ? CircleAvatar(
-    backgroundColor: Colors.black,
+    backgroundColor: Colors.grey,
       radius: 50,
       foregroundImage: NetworkImage(user!.profilePic),
     )

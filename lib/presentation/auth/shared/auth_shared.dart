@@ -5,6 +5,7 @@ Future<bool> googleSignIn(WidgetRef ref, BuildContext context) async {
   final errorModel = await ref.read(authRepositoryProvider).signInWithGoogle();
   if (errorModel.error == null  && errorModel.data != null) {
     ref.read(userProvider.notifier).state = errorModel.data;
+    ref.read(productControllerProvider.notifier).fetchAllProducts();
     return true;
   } else {
     sMessenger.showSnackBar(SnackBar(content: Text(errorModel.error!)));

@@ -38,7 +38,8 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    final user = ref.read(userProvider);
+    final user = ref.watch(userProvider);
+    final productState = ref.watch(productControllerProvider);
     return Scaffold(
       backgroundColor: Colors.black,
           body: CustomScrollView(
@@ -145,15 +146,18 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
           sliver: SliverGrid(
           delegate: SliverChildBuilderDelegate(
               (context, index) {
-             ElectronicProduct product = getProduct(index);
+            if (productState.isLoading) {
+              return Center(child: Image.asset(ImageConstants.loader, width: 100, height: 100));
+            }
+            final product = productState.products[index];
             return GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AppItemsDetails(product: product,)));
+                // Navigator.push(context, MaterialPageRoute(builder: (context) => AppItemsDetails(product: product,)));
               },
                 child: ProductsGrid(product: product,)
             );
           },
-          childCount: getLength(),
+          childCount: productState.products.length,
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,

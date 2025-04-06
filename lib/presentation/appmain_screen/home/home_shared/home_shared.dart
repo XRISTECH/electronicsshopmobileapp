@@ -116,7 +116,7 @@ class CategoryList extends StatelessWidget {
 }
 
 class ProductsGrid extends StatelessWidget {
-  final ElectronicProduct product;
+  final ProductModel product;
   const ProductsGrid({super.key, required this.product});
 
   @override
@@ -139,7 +139,20 @@ class ProductsGrid extends StatelessWidget {
             Stack(
               alignment: Alignment.topRight,
                children: [
-                Image.asset(product.img),
+                 Image.network(
+                   product.images[0],
+                   fit: BoxFit.cover,
+                   loadingBuilder: (context, child, loadingProgress) {
+                     if (loadingProgress == null) return child; // Image is fully loaded
+
+                     return Center(
+                       child: Image.asset(ImageConstants.loader, width: 100, height: 100)
+                     );
+                   },
+                   errorBuilder: (context, error, stackTrace) {
+                     return const Icon(Icons.error); // If image fails to load
+                   },
+                 ),
                 Positioned(
                     child: Container(
                         decoration: BoxDecoration(
