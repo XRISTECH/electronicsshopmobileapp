@@ -28,8 +28,8 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
                 child: Row(
                   children: [
-                    Image.asset(
-                      p.img,
+                    Image.network(
+                      p.images[0],
                       width: 60,
                       height: 60,
                     ),

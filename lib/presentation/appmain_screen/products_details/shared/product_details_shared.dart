@@ -4,14 +4,15 @@ import 'package:electronicsshop_app/cores/app_exports.dart';
 
 class BuildCircle extends StatelessWidget {
   final int currentIndex;
-  const BuildCircle({super.key, required this.currentIndex});
+  final int length;
+  const BuildCircle({super.key, required this.currentIndex, required this.length});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
-        3,
+        length,
             (index) => AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           margin: const EdgeInsets.only(right: 4),
@@ -32,7 +33,7 @@ class BuildCircle extends StatelessWidget {
 
 class ProductImages extends StatefulWidget {
   final Function switchPage;
-  final String img;
+  final List<String> img;
   const ProductImages({super.key, required this.switchPage, required this.img});
 
   @override
@@ -53,13 +54,13 @@ class _ProductImagesState extends State<ProductImages> {
           onPageChanged: (value) {
           widget.switchPage(value);
           },
-          itemCount: 3,
+          itemCount: widget.img.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Column(
               children: [
-                Image.asset(
-                  widget.img,
+                Image.network(
+                  widget.img[index],
                   height: 270,
                   width: 300,
                   fit: BoxFit.cover,

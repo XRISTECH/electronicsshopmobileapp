@@ -36,10 +36,12 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
       }
     }
   }
+
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(userProvider);
     final productState = ref.watch(productControllerProvider);
+
     return Scaffold(
       backgroundColor: Colors.black,
           body: CustomScrollView(
@@ -149,15 +151,15 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
             if (productState.isLoading) {
               return Center(child: Image.asset(ImageConstants.loader, width: 100, height: 100));
             }
-            final product = productState.products[index];
+            final product = getProduct(index);
             return GestureDetector(
               onTap: (){
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => AppItemsDetails(product: product,)));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AppItemsDetails(product: product,)));
               },
                 child: ProductsGrid(product: product,)
             );
           },
-          childCount: productState.products.length,
+          childCount: getLength(),
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -171,46 +173,50 @@ class _AppHomeScreenState extends ConsumerState<AppHomeScreen> {
           ),
     );
   }
-  ElectronicProduct getProduct(int index){
+
+  ProductModel getProduct(int index){
+    final productState = ref.watch(productControllerProvider.notifier);
     switch (productCategory.name) {
       case "SmartPhones":
-        return smartphones[index];
+        return productState.smartPhones[index];
       case "Fridge":
-        return fridges[index];
+        return productState.fridges[index];
       case "AC":
-        return airConditioners[index];
+        return productState.airConditioners[index];
       case "SmartWatch":
-        return smartwatches[index];
+        return productState.smartwatches[index];
       case "HeadPhone":
-        return headphones[index];
+        return productState.headphones[index];
       case "Laptop":
-        return laptops[index];
+        return productState.laptops[index];
       case "Television":
       default:
-        return televisions[index];
+        return productState.televisions[index];
     }
 
   }
 
   int getLength(){
+    final productState = ref.watch(productControllerProvider.notifier);
     switch (productCategory.name) {
       case "SmartPhones":
-        return smartphones.length;
+        return  productState.smartPhones.length;
       case "Fridge":
-        return fridges.length;
+        return productState.fridges.length;
       case "AC":
-        return airConditioners.length;
+        return productState.airConditioners.length;
       case "SmartWatch":
-        return smartwatches.length;
+        return productState.smartwatches.length;
       case "HeadPhone":
-        return headphones.length;
+        return productState.headphones.length;
       case "Laptop":
-        return laptops.length;
+        return productState.laptops.length;
       case "Television":
       default:
-        return televisions.length;
+        return productState.televisions.length;
     }
   }
+
   @override
   void dispose() {
     _scrollController.removeListener(_scrollListener);

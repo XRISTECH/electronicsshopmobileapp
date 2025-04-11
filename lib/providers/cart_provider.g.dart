@@ -6,11 +6,11 @@ part of 'cart_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$cartTotalHash() => r'f413ce90c3278ee6bfdfb246c852ca8bf24def35';
+String _$cartTotalHash() => r'b0ac204d8387f0cbfd6ecdc5aef5fcd1ac2b1e2c';
 
 /// See also [cartTotal].
 @ProviderFor(cartTotal)
-final cartTotalProvider = AutoDisposeProvider<int>.internal(
+final cartTotalProvider = AutoDisposeProvider<double>.internal(
   cartTotal,
   name: r'cartTotalProvider',
   debugGetCreateSourceHash:
@@ -21,13 +21,13 @@ final cartTotalProvider = AutoDisposeProvider<int>.internal(
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef CartTotalRef = AutoDisposeProviderRef<int>;
-String _$cartNotifierHash() => r'66ab868f7d420dc70d8b8752a155cc1ab05a7cfa';
+typedef CartTotalRef = AutoDisposeProviderRef<double>;
+String _$cartNotifierHash() => r'5649999651f876b365634c377cdb72fa9cfb292e';
 
 /// See also [CartNotifier].
 @ProviderFor(CartNotifier)
 final cartNotifierProvider =
-    AutoDisposeNotifierProvider<CartNotifier, Set<ElectronicProduct>>.internal(
+    AutoDisposeNotifierProvider<CartNotifier, Set<ProductModel>>.internal(
   CartNotifier.new,
   name: r'cartNotifierProvider',
   debugGetCreateSourceHash:
@@ -36,6 +36,6 @@ final cartNotifierProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$CartNotifier = AutoDisposeNotifier<Set<ElectronicProduct>>;
+typedef _$CartNotifier = AutoDisposeNotifier<Set<ProductModel>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

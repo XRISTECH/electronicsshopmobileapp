@@ -1,15 +1,15 @@
 import 'package:electronicsshop_app/cores/app_exports.dart';
 
-class Explore extends StatefulWidget {
+class Explore extends ConsumerStatefulWidget {
   const Explore({super.key, required this.onSwitch});
 
   final Function onSwitch;
 
   @override
-  State<Explore> createState() => _SearchState();
+  ConsumerState<Explore> createState() => _SearchState();
 }
 
-class _SearchState extends State<Explore> {
+class _SearchState extends ConsumerState<Explore> {
   Category productCategory = categoriesList[0];
   final TextEditingController _searchController = TextEditingController();
   @override
@@ -21,6 +21,7 @@ class _SearchState extends State<Explore> {
 
   @override
   Widget build(BuildContext context) {
+    final productState = ref.watch(productControllerProvider);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
@@ -67,12 +68,15 @@ class _SearchState extends State<Explore> {
                 childAspectRatio: 0.5,
               ),
               itemBuilder: (context, index){
-                ElectronicProduct product = getProduct(index);
+                if (productState.isLoading) {
+                  return Center(child: Image.asset(ImageConstants.loader, width: 100, height: 100));
+                }
+                final product = getProduct(index);
                 return GestureDetector(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => AppItemsDetails(product: product,)));
                     },
-                    child: Container()
+                    child: ProductsGrid(product: product,)
                 );
               }),
         )
@@ -82,44 +86,46 @@ class _SearchState extends State<Explore> {
     );
   }
 
-  ElectronicProduct getProduct(int index){
+  ProductModel getProduct(int index){
+    final productState = ref.watch(productControllerProvider.notifier);
     switch (productCategory.name) {
       case "SmartPhones":
-        return smartphones[index];
+        return productState.smartPhones[index];
       case "Fridge":
-        return fridges[index];
+        return productState.fridges[index];
       case "AC":
-        return airConditioners[index];
+        return productState.airConditioners[index];
       case "SmartWatch":
-        return smartwatches[index];
+        return productState.smartwatches[index];
       case "HeadPhone":
-        return headphones[index];
+        return productState.headphones[index];
       case "Laptop":
-        return laptops[index];
+        return productState.laptops[index];
       case "Television":
       default:
-        return televisions[index];
+        return productState.televisions[index];
     }
 
   }
 
   int getLength(){
+    final productState = ref.watch(productControllerProvider.notifier);
     switch (productCategory.name) {
       case "SmartPhones":
-        return smartphones.length;
+        return  productState.smartPhones.length;
       case "Fridge":
-        return fridges.length;
+        return productState.fridges.length;
       case "AC":
-        return airConditioners.length;
+        return productState.airConditioners.length;
       case "SmartWatch":
-        return smartwatches.length;
+        return productState.smartwatches.length;
       case "HeadPhone":
-        return headphones.length;
+        return productState.headphones.length;
       case "Laptop":
-        return laptops.length;
+        return productState.laptops.length;
       case "Television":
       default:
-        return televisions.length;
+        return productState.televisions.length;
     }
   }
 }

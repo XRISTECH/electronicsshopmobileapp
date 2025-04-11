@@ -6,19 +6,19 @@ part 'cart_provider.g.dart';
 class CartNotifier extends _$CartNotifier {
 // initial value
   @override
-  Set<ElectronicProduct> build() {
+  Set<ProductModel> build() {
     return {};
   }
 
 // method to add product
-  void addProduct(ElectronicProduct product) {
+  void addProduct(ProductModel product) {
     if (!state.contains(product)) {
       state = {...state, product};
     }
   }
 
 // method to remove product
-  void removeProduct(ElectronicProduct product) {
+  void removeProduct(ProductModel product) {
     if (state.contains(product)) {
       state = state.where((p) => p.id != product.id).toSet();
     }
@@ -29,11 +29,11 @@ class CartNotifier extends _$CartNotifier {
 
 // get total price of items in cart
 @riverpod
-int cartTotal(ref) {
+double cartTotal(ref) {
   final cartProducts = ref.watch(cartNotifierProvider);
-  int total = 0;
-  for (ElectronicProduct product in cartProducts) {
-   total += int.tryParse(product.price) ?? 0;
+  double total = 0;
+  for (ProductModel product in cartProducts) {
+   total += product.price;
   }
 
   return total;

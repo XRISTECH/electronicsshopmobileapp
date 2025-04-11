@@ -10,6 +10,15 @@ StateNotifierProvider<ProductController, ProductState>((ref) {
 class ProductController extends StateNotifier<ProductState> {
   final Ref _ref;
   final ProductRepository _productRepository;
+  late List<ProductModel> allProducts = [];
+  List<ProductModel> get smartPhones => allProducts.where((product) => product.name == "Smartphone").toList();
+  List<ProductModel> get fridges => allProducts.where((product) => product.name == "Fridge").toList();
+  List<ProductModel> get airConditioners => allProducts.where((product) => product.name == "Air Conditioner").toList();
+  List<ProductModel> get smartwatches => allProducts.where((product) => product.name == "Smartwatch").toList();
+  List<ProductModel> get headphones => allProducts.where((product) => product.name == "Headphone").toList();
+  List<ProductModel> get laptops => allProducts.where((product) => product.name == "Laptop").toList();
+  List<ProductModel> get televisions => allProducts.where((product) => product.name == "Television").toList();
+
 
   ProductController({
     required Ref ref,
@@ -28,7 +37,9 @@ class ProductController extends StateNotifier<ProductState> {
         isLoading: false,
         products: res.data as List<ProductModel>,
       );
+      allProducts = state.products;
       print(state.products.toString());
+      print(smartPhones);
     } else {
       // Optionally handle errors using a snackbar, logger, etc.
       debugPrint('Error fetching products: ${res.error}');

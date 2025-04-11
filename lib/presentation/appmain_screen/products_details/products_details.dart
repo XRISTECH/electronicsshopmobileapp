@@ -2,7 +2,7 @@ import 'package:electronicsshop_app/cores/app_exports.dart';
 
 
 class AppItemsDetails extends ConsumerStatefulWidget {
-  final ElectronicProduct product;
+  final ProductModel product;
   const AppItemsDetails({super.key, required this.product});
 
   @override
@@ -65,8 +65,8 @@ class _AppItemsDetailsState extends ConsumerState<AppItemsDetails> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-                  ProductImages(switchPage: switchPage, img: widget.product.img),
-                  BuildCircle(currentIndex: currentIndex,),
+                  ProductImages(switchPage: switchPage, img: widget.product.images),
+                  BuildCircle(currentIndex: currentIndex, length:  widget.product.images.length),
                   const SizedBox(height: 30,),
                   Row(
                     children: [
