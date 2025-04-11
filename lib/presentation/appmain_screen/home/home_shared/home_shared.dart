@@ -121,8 +121,8 @@ class ProductsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String abbreviatedProductBrand =
-    product.brand.length > 7 ? '${product.brand.substring(0, 7)}...' : product.brand;
+    String abbreviatedProductBrand = product.brand.length > 7 ? '${product.brand.substring(0, 7)}...' : product.brand;
+    String abbreviatedDescription = product.description.length > 40 ? '${product.description.substring(0, 40)}...' : product.description;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
@@ -179,7 +179,7 @@ class ProductsGrid extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 3,),
-            Text(product.description, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
+            Text(abbreviatedDescription, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.white),),
             const SizedBox(height: 3,),
             Text("N${product.price}", style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
           ],
